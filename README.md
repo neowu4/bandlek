@@ -6,28 +6,28 @@ Precis som i Bandle är låtarna omgjorda och inte originalinspelningarna. iTune
 
 ## Kom igång
 
+Noterna finns redan i repot, så det räcker att starta en server:
+
+```bash
+python3 -m http.server 5178 --directory public
+```
+
+Öppna http://localhost:5178.
+
+## Verktyg för att bygga låtar
+
 Kräver Python 3.11 och ffmpeg (`brew install python@3.11 ffmpeg`).
 
 ```bash
 python3.11 -m venv .venv
 .venv/bin/pip install demucs soundfile torchaudio
-.venv/bin/python build.py          # hämtar och delar upp låtarna i songs.txt
-python3 -m http.server 5178 --directory public
-```
-
-Spelet går att köra direkt med noterna som finns i repot. Stegen nedan behövs bara för att lägga till låtar.
-
-```bash
 python3.11 -m venv .venv-bp
 .venv-bp/bin/pip install basic-pitch librosa "setuptools<81"
-.venv-bp/bin/python transcribe.py   # stems -> noter (public/notes/*.json)
 ```
-
-Öppna http://localhost:5178.
 
 ## Lägga till låtar
 
-Skriv `Artist - Titel` på en ny rad i `songs.txt` och kör `build.py` och sedan `transcribe.py`. Låtar som redan är klara hoppas över, och `--force` gör om allt.
+Skriv `Artist - Titel` på en ny rad i `songs.txt` och kör `.venv/bin/python build.py` och sedan `.venv-bp/bin/python transcribe.py`. Låtar som redan är klara hoppas över, och `--force` gör om allt.
 
 ## Filer
 
