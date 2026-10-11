@@ -1,0 +1,470 @@
+[
+ {
+  "id": "abba-dancing-queen",
+  "t": "Dancing Queen",
+  "a": "ABBA",
+  "y": 1976,
+  "al": "ABBA Gold: Greatest Hits (40th Anniversary Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/dc/f7/90/dcf790c3-7c63-f7b3-e57b-5a8747a8ebbe/14UMGIM11148.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "abba-mamma-mia",
+  "t": "Mamma Mia",
+  "a": "ABBA",
+  "y": 1975,
+  "al": "ABBA (Bonus Track Version)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8a/5d/a4/8a5da415-562c-c7f3-0801-2bd251947ac3/14UMGIM07609.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ]
+ },
+ {
+  "id": "avicii-wake-me-up",
+  "t": "Wake Me Up",
+  "a": "Avicii",
+  "y": 2013,
+  "al": "True (Bonus Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/de/65/6c/de656c04-da50-4be1-1d3d-b0bb32667f52/20UMGIM76790.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "avicii-levels",
+  "t": "Levels",
+  "a": "Avicii",
+  "y": 2011,
+  "al": "Levels - EP",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/67/38/43/67384338-9ed7-fc68-5927-93f1fcf4705d/11UMGIM36900.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "roxette-it-must-have-been-love",
+  "t": "It Must Have Been Love",
+  "a": "Roxette",
+  "y": 1987,
+  "al": "It Must Have Been Love - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/18/72/e3/1872e3d5-20d4-dcf1-c3af-a87a553b296c/825646124688.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ]
+ },
+ {
+  "id": "europe-the-final-countdown",
+  "t": "The Final Countdown",
+  "a": "Europe",
+  "y": 1986,
+  "al": "The Final Countdown (Expanded Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/00/4d/a9/004da9d2-9b4f-99f4-d396-72ec786fb88c/696998575721.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "swedish-house-mafia-don-t-you-worry-child",
+  "t": "Don't You Worry Child",
+  "a": "Swedish House Mafia",
+  "y": 2012,
+  "al": "Don't You Worry Child (feat. John Martin) - EP",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7a/a0/33/7aa0335b-167b-c15a-fcac-22e22ed2ea03/5099997933755.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "zara-larsson-lush-life",
+  "t": "Lush Life",
+  "a": "Zara Larsson",
+  "y": 2017,
+  "al": "So Good",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/74/e6/3b/74e63bb4-d593-f926-85c7-df3ca43fcf3f/886446183473.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "robyn-dancing-on-my-own",
+  "t": "Dancing on My Own",
+  "a": "Robyn",
+  "y": 2010,
+  "al": "Dancing on My Own",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/f7/8c/0d/f78c0d62-c591-9774-e292-c3fe513994ea/5060236630292_3000.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "veronica-maggio-jag-kommer",
+  "t": "Jag Kommer",
+  "a": "Veronica Maggio",
+  "y": 2011,
+  "al": "Satan i gatan (Bonus Version)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/26/30/df/2630df1e-940c-63c9-98da-31123322f32e/00602527693057.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ]
+ },
+ {
+  "id": "hakan-hellstrom-kann-ingen-sorg-for-mig-goteborg",
+  "t": "Känn Ingen Sorg För Mig Göteborg",
+  "a": "Håkan Hellström",
+  "y": 2000,
+  "al": "Känn Ingen Sorg För Mig Göteborg",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/fb/88/b2/fb88b25c-0ed2-d8cd-851b-2b1fa99db3b9/0724385030956_1401x1401_300dpi.tif/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "loreen-euphoria",
+  "t": "Euphoria",
+  "a": "Loreen",
+  "y": 2012,
+  "al": "Euphoria - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/29/1d/da/291ddad2-f992-4534-3f7d-6320a7f61fca/dj.yyovvlkj.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "mans-zelmerlow-heroes",
+  "t": "Heroes",
+  "a": "Måns Zelmerlöw",
+  "y": 2015,
+  "al": "Perfectly Damaged",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/a9/04/f9/a904f946-ee1b-51e9-d7dd-d8962c0f941b/825646088010.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "the-cardigans-lovefool",
+  "t": "Lovefool",
+  "a": "The Cardigans",
+  "y": 1996,
+  "al": "Best of the Cardigans",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cb/2f/6f/cb2f6fcf-bcc6-175a-3f50-09c5a5834f55/07UMGIM18898.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "tove-lo-habits-stay-high",
+  "t": "Habits",
+  "a": "Tove Lo",
+  "y": 2013,
+  "al": "Queen of the Clouds",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0c/12/7e/0c127e73-442f-90fd-6e66-11e754e6db7c/14UMGIM37962.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "miss-li-dancing-the-whole-way-home",
+  "t": "Dancing the Whole Way Home",
+  "a": "Miss Li",
+  "y": 2009,
+  "al": "Dancing the Whole Way Home",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f9/df/3d/f9df3da7-db9e-ff3f-e0b2-cbb92a8968b7/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "kent-musik-non-stop",
+  "t": "Musik Non Stop",
+  "a": "Kent",
+  "y": 1999,
+  "al": "Best Of",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music62/v4/0f/58/fe/0f58fec0-571f-9d4d-52d5-80972ab7cb0c/886445943238.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ]
+ },
+ {
+  "id": "queen-don-t-stop-me-now",
+  "t": "Don't Stop Me Now",
+  "a": "Queen",
+  "y": 1978,
+  "al": "Jazz (Deluxe Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9e/ae/4a/9eae4a23-130a-4ed7-d590-bfa701f9acaf/602527717685.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ]
+ },
+ {
+  "id": "michael-jackson-billie-jean",
+  "t": "Billie Jean",
+  "a": "Michael Jackson",
+  "y": 1982,
+  "al": "Michael Jackson's This Is It (The Music That Inspired the Movie)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/2a/82/a5/2a82a59b-6e79-7c39-761a-c1d3b82e93cb/dj.dzbxcmnk.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "the-weeknd-blinding-lights",
+  "t": "Blinding Lights",
+  "a": "The Weeknd",
+  "y": 2019,
+  "al": "After Hours",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6f/bc/e6/6fbce6c4-c38c-72d8-4fd0-66cfff32f679/20UMGIM12176.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "ed-sheeran-shape-of-you",
+  "t": "Shape of You",
+  "a": "Ed Sheeran",
+  "y": 2017,
+  "al": "÷ (Deluxe)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/15/e6/e8/15e6e8a4-4190-6a8b-86c3-ab4a51b88288/190295851286.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "dua-lipa-levitating",
+  "t": "Levitating",
+  "a": "Dua Lipa",
+  "y": 2020,
+  "al": "Future Nostalgia",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/6c/11/d6/6c11d681-aa3a-d59e-4c2e-f77e181026ab/190295092665.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "coldplay-viva-la-vida",
+  "t": "Viva la Vida",
+  "a": "Coldplay",
+  "y": 2008,
+  "al": "Viva la Vida (Prospekt's March Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/56/bc/3d/56bc3d9c-0a4a-0466-643e-eb9bd748e8bf/190295978037.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "toto-africa",
+  "t": "Africa",
+  "a": "Toto",
+  "y": 1982,
+  "al": "Toto IV",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/69/ce/d2/69ced240-07a7-2a04-bbab-2afbacf30809/074643772822.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "a-ha-take-on-me",
+  "t": "Take On Me",
+  "a": "a-ha",
+  "y": 1985,
+  "al": "Hunting High and Low (Deluxe Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music/c6/e1/c8/mzi.ixgzfcmc.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "mark-ronson-uptown-funk",
+  "t": "Uptown Funk",
+  "a": "Mark Ronson",
+  "y": 2015,
+  "al": "Uptown Special",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/43/03/57/430357e0-e142-8d4d-ca56-87f4bd41e017/886444976145.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "daft-punk-get-lucky",
+  "t": "Get Lucky",
+  "a": "Daft Punk",
+  "y": 2013,
+  "al": "Get Lucky (feat. Pharrell Williams) [Radio Edit] - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/1c/da/5a/1cda5a7d-90ad-8643-efb2-7641afb13418/886443973442.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "fleetwood-mac-dreams",
+  "t": "Dreams",
+  "a": "Fleetwood Mac",
+  "y": 1977,
+  "al": "Rumours",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/13/ba/4d13bac3-d3d5-7581-2c74-034219eadf2b/081227970949.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ]
+ },
+ {
+  "id": "oasis-wonderwall",
+  "t": "Wonderwall",
+  "a": "Oasis",
+  "y": 1995,
+  "al": "(What's the Story) Morning Glory?",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/04/92/e0/0492e08b-cbcc-9969-9ad6-8f5a0888068c/5051961007107.jpg/600x600bb.jpg",
+  "stems": [
+   "guitar",
+   "vocals"
+  ]
+ },
+ {
+  "id": "nirvana-smells-like-teen-spirit",
+  "t": "Smells Like Teen Spirit",
+  "a": "Nirvana",
+  "y": 1991,
+  "al": "Nirvana",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7b/58/c2/7b58c21a-2b51-2bb2-e59a-9bb9b96ad8c3/00602567924166.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ]
+ },
+ {
+  "id": "eagles-hotel-california",
+  "t": "Hotel California",
+  "a": "Eagles",
+  "y": 1976,
+  "al": "Hotel California (40th Anniversary Expanded Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8f/f0/88/8ff088ee-bd18-8a27-1bb6-c0e44ad91cb6/603497862542.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ]
+ },
+ {
+  "id": "adele-rolling-in-the-deep",
+  "t": "Rolling In the Deep",
+  "a": "Adele",
+  "y": 2010,
+  "al": "Rolling In the Deep - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/7a/80/6a/7a806a9a-ba56-57c0-f6c7-59cfc1ca2abf/634904852160.png/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ]
+ }
+]

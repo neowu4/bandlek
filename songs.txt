@@ -1,0 +1,33 @@
+# En låt per rad: Artist - Titel. Kör sedan: .venv/bin/python build.py
+ABBA - Dancing Queen
+ABBA - Mamma Mia
+Avicii - Wake Me Up
+Avicii - Levels
+Roxette - It Must Have Been Love
+Europe - The Final Countdown
+Swedish House Mafia - Don't You Worry Child
+Zara Larsson - Lush Life
+Robyn - Dancing On My Own
+Veronica Maggio - Jag kommer
+Håkan Hellström - Känn ingen sorg för mig Göteborg
+Loreen - Euphoria
+Måns Zelmerlöw - Heroes
+The Cardigans - Lovefool
+Tove Lo - Habits (Stay High)
+Miss Li - Dancing the Whole Way Home
+Kent - Musik non stop
+Queen - Don't Stop Me Now
+Michael Jackson - Billie Jean
+The Weeknd - Blinding Lights
+Ed Sheeran - Shape of You
+Dua Lipa - Levitating
+Coldplay - Viva La Vida
+Toto - Africa
+a-ha - Take On Me
+Mark Ronson - Uptown Funk
+Daft Punk - Get Lucky
+Fleetwood Mac - Dreams
+Oasis - Wonderwall
+Nirvana - Smells Like Teen Spirit
+Eagles - Hotel California
+Adele - Rolling in the Deep

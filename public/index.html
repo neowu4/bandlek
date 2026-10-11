@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bandlek</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Mixerpult: en kanalremsa per instrument som låses upp i tur och ordning. */
+:root{
+  --bg:#E8EBE5; --panel:#F6F7F3; --well:#D9DED6; --ink:#19201D; --muted:#5A655F; --line:#C5CCC2;
+  --accent:#2C47D2; --accent-ink:#FFFFFF; --led:#DE920F; --ok:#1C8448; --bad:#BF3E2A;
+  --display:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --body:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#111514; --panel:#1A1F1D; --well:#0B0E0D; --ink:#E4E8E1; --muted:#92A097; --line:#2C3330;
+  --accent:#8A9BFF; --accent-ink:#0E1430; --led:#F2B23C; --ok:#4BC27E; --bad:#F06A52; color-scheme:dark }}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink);margin:0}
+body{font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:flex;flex-direction:column;gap:22px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+[hidden]{display:none!important}
+
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.brand h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,9vw,64px);line-height:.85;margin:0;text-transform:uppercase}
+.brand p{margin:6px 0 0;color:var(--muted);max-width:42ch}
+.modes{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--panel)}
+.modes button{border:0;background:none;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:500;color:var(--muted)}
+.modes button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.meta{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+.desk{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.strip{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;padding:8px 2px;transition:opacity .3s}
+.strip .ch{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.meter{position:relative;width:min(34px,70%);height:132px;background:var(--well);border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.meter i{position:absolute;inset:0;transform-origin:bottom;transform:scaleY(0);background:linear-gradient(to top,var(--ok) 0 60%,var(--led) 60% 85%,var(--bad) 85%)}
+.meter::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to top,transparent 0 5px,var(--well) 5px 6px);opacity:.55}
+.led{width:9px;height:9px;border-radius:50%;background:var(--well);border:1px solid var(--line)}
+.strip.on .led{background:var(--led);border-color:var(--led);box-shadow:0 0 8px var(--led)}
+.strip .name{font-family:var(--display);font-weight:600;font-size:clamp(13px,3.2vw,19px);letter-spacing:.05em;text-transform:uppercase;line-height:1;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.strip .st{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.strip.off{opacity:.42} .strip.next{opacity:.7} .strip.next .st{color:var(--accent)}
+
+.transport{display:flex;align-items:center;gap:16px}
+.play{flex:none;width:64px;height:64px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
+.play svg{width:24px;height:24px;fill:currentColor}
+.play:disabled{opacity:.5;cursor:wait}
+.tl{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.tl-top{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl-top span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.track{position:relative;height:10px;background:var(--well);border-radius:5px;overflow:hidden;border:1px solid var(--line)}
+.track .fill{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:var(--accent)}
+.hint{margin:0;font-family:var(--mono);font-size:13px;color:var(--accent)}
+
+.guesses{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.guesses li{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:10px;min-height:42px;padding:0 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+.guesses .n{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.guesses .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.guesses .tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.guesses li.wrong{border-color:var(--bad)} .guesses li.wrong .tag{color:var(--bad)}
+.guesses li.artist{border-color:var(--led)} .guesses li.artist .tag{color:var(--led)}
+.guesses li.skip .t,.guesses li.skip .tag{color:var(--muted)}
+.guesses li.right{border-color:var(--ok)} .guesses li.right .tag{color:var(--ok)}
+.guesses li.empty{background:none;border-style:dashed}
+
+.form{display:flex;flex-wrap:wrap;gap:8px}
+.field{position:relative;flex:1 1 260px;min-width:0}
+.field input{width:100%;height:46px;padding:0 14px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);font:inherit}
+.sugg{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:5;margin:0;padding:4px;list-style:none;background:var(--panel);border:1px solid var(--line);border-radius:6px;max-height:260px;overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.sugg li{padding:8px 10px;border-radius:4px;cursor:pointer}
+.sugg li small{color:var(--muted)}
+.sugg li[aria-selected="true"],.sugg li:hover{background:var(--well)}
+.btn{height:46px;padding:0 18px;border-radius:6px;border:1px solid var(--line);background:var(--panel);font-weight:600}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.msg{min-height:1.5em;margin:0;font-size:13px;color:var(--bad)}
+
+.result{display:grid;grid-template-columns:140px 1fr;gap:18px;border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:18px}
+.result img{width:140px;height:140px;border-radius:6px;object-fit:cover;background:var(--well)}
+.result .body{display:flex;flex-direction:column;gap:10px;min-width:0}
+.result .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.result h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,6vw,40px);line-height:1;margin:0;text-transform:uppercase;text-wrap:balance}
+.result .who{color:var(--muted);margin:0}
+.result .row{display:flex;flex-wrap:wrap;gap:8px}
+.share{font-family:var(--mono);font-size:13px;white-space:pre;background:var(--well);padding:10px 12px;border-radius:6px;overflow-x:auto}
+@media (max-width:520px){.result{grid-template-columns:1fr}}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;border-top:1px solid var(--line);padding-top:16px}
+.stats div{display:flex;flex-direction:column}
+.stats b{font-family:var(--display);font-size:28px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stats span{font-size:12px;color:var(--muted)}
+footer{font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>Bandlek</h1>
+      <p>Gissa låten. Bandet börjar med trummorna, och varje miss släpper in nästa instrument.</p>
+    </div>
+    <div class="modes" role="group" aria-label="Spelläge">
+      <button id="mDaily" aria-pressed="true">Dagens låt</button>
+      <button id="mFree" aria-pressed="false">Träning</button>
+    </div>
+  </header>
+
+  <div class="meta"><span id="puzzleNo">Laddar…</span><span id="songMeta"></span></div>
+  <section class="desk" id="desk" aria-label="Instrument"></section>
+
+  <section class="transport">
+    <button class="play" id="play" aria-label="Spela" disabled><svg viewBox="0 0 24 24" id="playIcon"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+    <div class="tl">
+      <div class="tl-top"><span id="layerInfo">Laddar ljud…</span><span id="time">0:00 / 0:00</span></div>
+      <div class="track"><div class="fill" id="fill"></div></div>
+    </div>
+  </section>
+  <p class="hint" id="hint" hidden></p>
+
+  <ol class="guesses" id="guesses"></ol>
+
+  <section id="playArea">
+    <form class="form" id="form" autocomplete="off">
+      <div class="field">
+        <input id="guess" type="text" placeholder="Sök låt eller artist…" aria-label="Din gissning" role="combobox" aria-expanded="false" aria-controls="sugg">
+        <ul class="sugg" id="sugg" role="listbox" hidden></ul>
+      </div>
+      <button type="button" class="btn" id="skip">Hoppa över</button>
+      <button type="submit" class="btn primary">Gissa</button>
+    </form>
+    <p class="msg" id="msg"></p>
+  </section>
+
+  <section class="result" id="result" hidden></section>
+  <section class="stats" id="stats" aria-label="Statistik"></section>
+  <footer>Ljud: 30-sekundersklipp från iTunes, uppdelade i instrument med Demucs. Rätt artist men fel låt markeras gult.</footer>
+</div>
+
+<script>
+const NAMES = {drums:'Trummor', bass:'Bas', piano:'Piano', guitar:'Gitarr', other:'Synt & övrigt', vocals:'Sång'};
+const $ = id => document.getElementById(id);
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const label = s => `${s.t} – ${s.a}`;
+const store = { get(k,f){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):f; }catch(e){ return f; } },
+                set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} } };
+
+let CATALOG=[], ORDER=[], state, ctx=null, buffers={}, loadToken=0, session=null, meters=[];
+
+// ---------- Dag & ordning ----------
+const EPOCH = Date.UTC(2026,9,1);
+function dayNo(){ const d=new Date(); return Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-EPOCH)/864e5)+1; }
+function shuffled(n){ let s=20261011; const r=()=>((s=(s*1103515245+12345)%2147483648)/2147483648); const a=[...Array(n).keys()];
+  for(let i=n-1;i>0;i--){ const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+const song = () => CATALOG[state.song];
+const maxGuesses = () => song().stems.length + 1;          // sista försöket: alla stems + ledtråd
+const layers = () => state.done ? song().stems.length : Math.min(song().stems.length, state.guesses.length+1);
+
+function newDaily(){ const n=dayNo(); const saved=store.get('bandlek:day:'+n,null);
+  state={mode:'daily', no:n, song:ORDER[(n-1)%CATALOG.length], guesses:[], done:false, won:false, ...(saved||{})}; }
+function newFree(){ let i; do{ i=Math.floor(Math.random()*CATALOG.length); }while(state && i===state.song && CATALOG.length>1);
+  state={mode:'free', no:null, song:i, guesses:[], done:false, won:false}; }
+function save(){ if(state.mode==='daily') store.set('bandlek:day:'+state.no,{guesses:state.guesses,done:state.done,won:state.won}); }
+
+// ---------- Ljud ----------
+function ensureCtx(){ if(!ctx) ctx=new (window.AudioContext||window.webkitAudioContext)(); if(ctx.state==='suspended') ctx.resume(); }
+async function loadSong(){
+  const tok=++loadToken, s=song(); buffers={}; $('play').disabled=true; $('layerInfo').textContent='Laddar ljud…';
+  ensureCtx();
+  const out = await Promise.all(s.stems.map(async st=>{ const r=await fetch(`stems/${s.id}/${st}.mp3`); return [st, await ctx.decodeAudioData(await r.arrayBuffer())]; }));
+  if(tok!==loadToken) return;
+  buffers=Object.fromEntries(out); $('play').disabled=false; render();
+}
+function play(n){
+  stop(); ensureCtx(); const s=song(); if(!buffers[s.stems[0]]) return;
+  const t0=ctx.currentTime+.05, master=ctx.createGain(); master.gain.value=window.MUTE?0:.9; // MUTE: tyst testläge, mätarna rör sig ändå master.connect(ctx.destination);
+  const tr=s.stems.map((st,i)=>{ const an=ctx.createAnalyser(); an.fftSize=512; an.connect(master);
+    let src=null; if(i<n){ src=ctx.createBufferSource(); src.buffer=buffers[st]; src.connect(an); src.start(t0); } return {an,src}; });
+  session={t0, dur:buffers[s.stems[0]].duration, tr, master, buf:new Float32Array(512)};
+  setPlaying(true);
+}
+function stop(){ if(!session) return; session.tr.forEach(t=>{ try{t.src&&t.src.stop()}catch(e){} }); try{session.master.disconnect()}catch(e){}
+  session=null; setPlaying(false); meters.forEach(m=>m.style.transform='scaleY(0)'); }
+const PLAY='<path d="M7 4.5v15l13-7.5z"/>', STOP='<path d="M6 6h12v12H6z"/>';
+function setPlaying(p){ $('playIcon').innerHTML=p?STOP:PLAY; $('play').setAttribute('aria-label',p?'Stoppa':'Spela'); if(!p) $('fill').style.transform='scaleX(0)'; }
+const fmt = s => { s=Math.max(0,Math.round(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); };
+
+function frame(){
+  if(session){ const el=ctx.currentTime-session.t0, p=Math.min(1,Math.max(0,el/session.dur));
+    $('fill').style.transform=`scaleX(${p})`; $('time').textContent=`${fmt(el)} / ${fmt(session.dur)}`;
+    session.tr.forEach((t,i)=>{ if(!meters[i]) return; t.an.getFloatTimeDomainData(session.buf); let q=0; for(const v of session.buf) q+=v*v;
+      meters[i].style.transform=`scaleY(${Math.min(1,Math.sqrt(q/512)*4).toFixed(3)})`; });
+    if(el>session.dur+.3) stop();
+  }
+  const cd=$('countdown'); if(cd){ const now=new Date(), mid=new Date(now); mid.setHours(24,0,0,0); const s=Math.floor((mid-now)/1000);
+    cd.textContent=`Nästa låt om ${Math.floor(s/3600)} h ${String(Math.floor(s/60)%60).padStart(2,'0')} min`; }
+  requestAnimationFrame(frame);
+}
+
+// ---------- Spel ----------
+function finish(won){
+  state.done=true; state.won=won; save();
+  if(state.mode==='daily'){ const st=store.get('bandlek:stats',{played:0,wins:0,streak:0,best:0});
+    if(st.lastDay!==state.no){ st.played++; st.lastDay=state.no;
+      if(won){ st.wins++; st.streak = st.lastWin===state.no-1 ? st.streak+1 : 1; st.lastWin=state.no; st.best=Math.max(st.best,st.streak); } else st.streak=0;
+      store.set('bandlek:stats',st); } }
+  play(song().stems.length);
+}
+function advance(){ if(state.guesses.length>=maxGuesses()) finish(false); else { save(); play(layers()); } render(); }
+function guess(text){
+  const hit = CATALOG.find(s=>norm(label(s))===norm(text)) || CATALOG.find(s=>norm(s.t)===norm(text));
+  if(!hit){ $('msg').textContent='Välj en låt ur listan.'; return; }
+  if(state.guesses.some(g=>g.t===label(hit))){ $('msg').textContent='Den har du redan gissat på.'; return; }
+  $('msg').textContent=''; $('guess').value=''; closeSugg();
+  if(hit===song()){ state.guesses.push({k:'right',t:label(hit)}); finish(true); render(); return; }
+  state.guesses.push({k: hit.a===song().a ? 'artist':'wrong', t:label(hit)}); advance();
+}
+function skip(){ if(state.done) return; $('msg').textContent=''; state.guesses.push({k:'skip',t:'Hoppade över'}); advance(); }
+
+// ---------- Rendering ----------
+function buildDesk(){ const s=song(); $('desk').innerHTML=s.stems.map((st,i)=>`<div class="strip"><span class="ch">CH ${i+1}</span><div class="meter"><i></i></div><span class="led"></span><span class="name" title="${NAMES[st]}">${NAMES[st]}</span><span class="st"></span></div>`).join('');
+  meters=[...$('desk').querySelectorAll('.meter i')]; }
+function render(){
+  const s=song(), L=layers(), G=maxGuesses();
+  $('mDaily').setAttribute('aria-pressed', state.mode==='daily'); $('mFree').setAttribute('aria-pressed', state.mode==='free');
+  $('puzzleNo').textContent = state.mode==='daily' ? `Dagens låt · Nr ${state.no}` : 'Träning · slumpad låt';
+  $('songMeta').textContent = `${CATALOG.length} låtar i spelet`;
+  [...$('desk').children].forEach((el,i)=>{ const on=i<L, nx=i===L&&!state.done; el.className='strip '+(on?'on':nx?'next':'off');
+    el.querySelector('.st').textContent = on?'På':nx?'Nästa':'Låst'; });
+  if(!$('play').disabled) $('layerInfo').textContent = s.stems.slice(0,L).map(x=>NAMES[x]).join(' + ');
+  const lastTry = !state.done && state.guesses.length===G-1;
+  $('hint').hidden=!lastTry; $('hint').textContent = lastTry ? `Sista chansen. Ledtråd: utgiven ${s.y}, artisten börjar på "${s.a[0]}".` : '';
+  $('guesses').innerHTML = Array.from({length:G},(_,i)=>{ const g=state.guesses[i];
+    if(!g) return `<li class="empty"><span class="n">${i+1}</span><span class="t"></span><span class="tag">${i===state.guesses.length&&!state.done?'Nu':''}</span></li>`;
+    const tag={right:'Rätt',wrong:'Fel',artist:'Rätt artist',skip:'Pass'}[g.k];
+    return `<li class="${g.k}"><span class="n">${i+1}</span><span class="t">${esc(g.t)}</span><span class="tag">${tag}</span></li>`; }).join('');
+  $('playArea').hidden=state.done;
+  const r=$('result'); r.hidden=!state.done;
+  if(state.done){ const share=shareText();
+    r.innerHTML=`<img src="${esc(s.c)}" alt="Omslag: ${esc(s.al)}">
+      <div class="body"><span class="eyebrow">${state.won?`Rätt på försök ${state.guesses.length} av ${G}`:'Inte den här gången'}</span>
+      <h2>${esc(s.t)}</h2><p class="who">${esc(s.a)} · ${esc(s.al)} · ${s.y}</p>
+      ${state.mode==='daily'?`<div class="share" id="shareBox">${esc(share)}</div>`:''}
+      <div class="row"><button class="btn" id="again">Spela hela klippet</button>
+        ${state.mode==='daily'?'<button class="btn" id="copy">Kopiera resultat</button>':''}
+        <button class="btn primary" id="next">${state.mode==='daily'?'Träna på fler låtar':'Ny låt'}</button></div>
+      ${state.mode==='daily'?'<span class="eyebrow" id="countdown"></span>':''}</div>`;
+    $('again').onclick=()=>play(s.stems.length);
+    $('next').onclick=()=>{ stop(); newFree(); start(); };
+    if($('copy')) $('copy').onclick=async e=>{ const b=e.currentTarget; try{ await navigator.clipboard.writeText(share); b.textContent='Kopierat'; }
+      catch(err){ const rg=document.createRange(); rg.selectNodeContents($('shareBox')); getSelection().removeAllRanges(); getSelection().addRange(rg); b.textContent='Markerat, kopiera själv'; } };
+  }
+  const st=store.get('bandlek:stats',{played:0,wins:0,streak:0,best:0});
+  $('stats').innerHTML=[[st.played,'Spelade'],[st.played?Math.round(100*st.wins/st.played)+'%':'–','Vinster'],[st.streak,'Svit nu'],[st.best,'Bästa svit']]
+    .map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');
+}
+function shareText(){ const sq=Array.from({length:maxGuesses()},(_,i)=>{ const g=state.guesses[i]; return !g?'⬛':{right:'🟩',wrong:'🟥',artist:'🟨',skip:'⬜'}[g.k]; }).join('');
+  return `Bandlek #${state.no} ${state.won?state.guesses.length:'X'}/${maxGuesses()}\n${sq}`; }
+
+// ---------- Förslag ----------
+let sel=-1;
+function openSugg(){ const q=norm($('guess').value), box=$('sugg');
+  const list = q ? CATALOG.filter(s=>norm(label(s)).includes(q)).slice(0,8) : [];
+  sel=-1; box.innerHTML=list.map(s=>`<li role="option" aria-selected="false" data-v="${esc(label(s))}">${esc(s.t)} <small>${esc(s.a)}</small></li>`).join('');
+  box.hidden=!list.length; $('guess').setAttribute('aria-expanded',String(!!list.length)); }
+function closeSugg(){ $('sugg').hidden=true; $('guess').setAttribute('aria-expanded','false'); sel=-1; }
+$('guess').addEventListener('input',openSugg);
+$('guess').addEventListener('keydown',e=>{ const items=[...$('sugg').children]; if($('sugg').hidden||!items.length) return;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){ e.preventDefault(); sel=(sel+(e.key==='ArrowDown'?1:-1)+items.length)%items.length; items.forEach((li,i)=>li.setAttribute('aria-selected',String(i===sel))); }
+  else if(e.key==='Enter'&&sel>=0){ e.preventDefault(); $('guess').value=items[sel].dataset.v; closeSugg(); }
+  else if(e.key==='Escape') closeSugg(); });
+$('sugg').addEventListener('mousedown',e=>{ const li=e.target.closest('li'); if(!li) return; e.preventDefault(); $('guess').value=li.dataset.v; closeSugg(); $('guess').focus(); });
+$('guess').addEventListener('blur',()=>setTimeout(closeSugg,120));
+$('form').addEventListener('submit',e=>{ e.preventDefault(); if(!state.done) guess($('guess').value); });
+$('skip').onclick=skip;
+$('play').onclick=()=>{ if(session) stop(); else play(layers()); };
+$('mDaily').onclick=()=>{ stop(); newDaily(); start(); };
+$('mFree').onclick=()=>{ stop(); newFree(); start(); };
+
+function start(){ buildDesk(); render(); loadSong().catch(err=>{ $('layerInfo').textContent='Kunde inte ladda ljudet: '+err.message; }); }
+fetch('catalog.json').then(r=>r.json()).then(c=>{ CATALOG=c; ORDER=shuffled(c.length); newDaily(); start(); requestAnimationFrame(frame); })
+  .catch(()=>{ $('puzzleNo').textContent='Hittar ingen catalog.json – kör build.py först'; });
+</script>
+</body>
+</html>
