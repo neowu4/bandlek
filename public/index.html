@@ -245,7 +245,11 @@ async function loadSong(){
 async function play(n){
   stop(); stopOriginal(); ensureCtx(); if(!notes||!player) return;
   if(ctx.state!=='running'){ try{ await ctx.resume(); }catch(e){} }  // Safari/Chrome: väck ljudet inom klicket
-  const t0=ctx.currentTime+.1, master=ctx.createGain(); master.gain.value=window.MUTE?0:volGain(); // window.MUTE: tyst testläge
+  // Hoppa över tystnad i början. Startpunkten sätts av steg 1 och är densamma i alla steg,
+  // så att varje steg spelar samma del av låten och lagren ligger synkade.
+  const firstHit = Math.min(...stages[0].map(p=>{ const ev=(notes.tracks[p.t]||[]).filter(e=>p.t==='drums'||!(p.lo&&e[2]>=p.med||p.hi&&e[2]<p.med)); return ev.length?ev[0][0]:Infinity; }));
+  const off = isFinite(firstHit) ? Math.max(0, firstHit-.25) : 0;
+  const t0=ctx.currentTime+.1-off, master=ctx.createGain(); master.gain.value=window.MUTE?0:volGain(); // window.MUTE: tyst testläge
   const comp=ctx.createDynamicsCompressor(); master.connect(comp); comp.connect(ctx.destination);
   // Gemensamt rum: lite efterklang limmar ihop lagren
   const verb=ctx.createConvolver(); verb.buffer=roomImpulse(); const wet=ctx.createGain(); wet.gain.value=.9; verb.connect(wet); wet.connect(master);
@@ -255,12 +259,12 @@ async function play(n){
       // Varje instrument får en egen plats i stereobilden och en egen mängd rumsklang
       const g=ctx.createGain(), pan=ctx.createStereoPanner(); pan.pan.value=PAN[part.t]||0; g.connect(pan); pan.connect(sg);
       const send=ctx.createGain(); send.gain.value=SEND[part.t]||0; g.connect(send); send.connect(verb);
-      if(part.t==='drums') ev.forEach(([t,k,v])=>{ const d=DRUMS[k]; if(d) player.queueWaveTable(ctx,g,window[d[1]],t0+t,d[0],k==='c'||k==='o'?1.2:.5,d[2]*(.45+.55*v)); });
-      else ev.forEach(([t,len,m,v])=>{ if(part.lo&&m>=part.med||part.hi&&m<part.med) return;
+      if(part.t==='drums') ev.forEach(([t,k,v])=>{ const d=DRUMS[k]; if(d&&t>=off) player.queueWaveTable(ctx,g,window[d[1]],t0+t,d[0],k==='c'||k==='o'?1.2:.5,d[2]*(.45+.55*v)); });
+      else ev.forEach(([t,len,m,v])=>{ if(t<off||part.lo&&m>=part.med||part.hi&&m<part.med) return;
         player.queueWaveTable(ctx,g,window[TONES[part.t]],t0+t,m,Math.max(.12,len+(part.t==='piano'||part.t==='guitar'?.15:0)),LEVEL[part.t]*(.5+.5*v)); });
     });
     return {an}; });
-  session={t0, dur:notes.dur, tr, master, buf:new Float32Array(512)};
+  session={t0:t0+off, dur:notes.dur-off, tr, master, buf:new Float32Array(512)};
   setPlaying(true);
 }
 function stop(){ if(!session) return; try{ player.cancelQueue(ctx); }catch(e){} try{session.master.disconnect()}catch(e){}
