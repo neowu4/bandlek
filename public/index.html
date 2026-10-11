@@ -74,6 +74,31 @@ header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-be
 .vol svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .vol input{width:96px;accent-color:var(--accent)}
 @media (max-width:520px){.transport{flex-wrap:wrap}.vol{width:100%}.vol input{flex:1;width:auto}}
+.facts div:last-child b{color:var(--accent)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.steps li{position:relative;display:grid;grid-template-columns:24px 1fr auto;align-items:center;gap:10px;min-height:46px;padding:6px 14px;border-radius:10px;
+  border:1px solid var(--line);background:var(--panel);overflow:hidden;transition:opacity .25s,border-color .25s}
+.steps li .lvl{position:absolute;inset:0 auto 0 0;width:100%;transform-origin:left;transform:scaleX(0);background:var(--accent);opacity:.12;pointer-events:none}
+.steps .n{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.steps .nm{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.steps .g{grid-column:2/4;font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.steps .tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.steps li.off{opacity:.45}
+.steps li.cur{border-color:var(--ok);box-shadow:0 0 0 1px var(--ok) inset}
+.steps li.cur .nm,.steps li.cur .n{color:var(--ok)}
+.steps li.wrong .g{color:var(--bad)} .steps li.artist .g{color:var(--led)} .steps li.right .g{color:var(--ok)} .steps li.skip .g{color:var(--muted)}
+.steps li.clue.on .nm{color:var(--led)}
+.controls{display:flex;align-items:center;justify-content:center;gap:14px}
+.ctl{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--panel);display:grid;place-items:center;padding:0}
+.ctl svg{width:20px;height:20px;fill:currentColor}
+.ctl text{font:700 7px var(--mono);fill:currentColor}
+.ctl[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+#muteBtn svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.transport{flex-direction:column;align-items:stretch;gap:10px}
+.transport .vol{display:flex;justify-content:center}
+.transport .vol input{width:160px;accent-color:var(--accent)}
+.form .actions{display:flex;gap:8px;flex:1 1 100%;justify-content:space-between}
+.form .actions .btn{flex:1;max-width:200px}
 .hint{margin:0;font-family:var(--mono);font-size:13px;color:var(--accent)}
 
 .guesses{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
@@ -133,22 +158,20 @@ footer{font-size:12px;color:var(--muted)}
   <nav class="cats" id="cats" aria-label="Kategori"></nav>
   <div class="meta"><span id="puzzleNo">Laddar…</span><span id="songMeta"></span></div>
   <section class="facts" id="facts" aria-label="Om låten"></section>
-  <section class="desk" id="desk" aria-label="Instrument"></section>
+  <ol class="steps" id="steps" aria-label="Steg"></ol>
 
   <section class="transport">
-    <button class="play" id="play" aria-label="Spela" disabled><svg viewBox="0 0 24 24" id="playIcon"><path d="M7 4.5v15l13-7.5z"/></svg></button>
-    <div class="tl">
-      <div class="tl-top"><span id="layerInfo">Laddar ljud…</span><span id="time">0:00 / 0:00</span></div>
-      <div class="track"><div class="fill" id="fill"></div></div>
+    <div class="controls">
+      <button type="button" class="ctl" id="muteBtn" aria-label="Stäng av ljudet"><svg viewBox="0 0 24 24" id="volIcon"></svg></button>
+      <button type="button" class="ctl" id="back5" aria-label="Spola tillbaka 5 sekunder"><svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/><text x="12" y="16.5" text-anchor="middle">5</text></svg></button>
+      <button class="play" id="play" aria-label="Spela" disabled><svg viewBox="0 0 24 24" id="playIcon"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+      <button type="button" class="ctl" id="fwd5" aria-label="Spola fram 5 sekunder"><svg viewBox="0 0 24 24"><path d="M12 5V2l5 4-5 4V7a6 6 0 1 0 6 6h2a8 8 0 1 1-8-8z"/><text x="12" y="16.5" text-anchor="middle">5</text></svg></button>
+      <button type="button" class="ctl" id="loopBtn" aria-label="Upprepa" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2z"/></svg></button>
     </div>
-    <div class="vol">
-      <button type="button" id="muteBtn" aria-label="Stäng av ljudet"><svg viewBox="0 0 24 24" id="volIcon"></svg></button>
-      <input type="range" id="vol" min="0" max="100" step="1" value="80" aria-label="Volym">
-    </div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+    <div class="tl-top"><span id="layerInfo">Laddar ljud…</span><span id="time">0:00 / 0:00</span></div>
+    <div class="vol"><input type="range" id="vol" min="0" max="100" step="1" value="80" aria-label="Volym"></div>
   </section>
-  <p class="hint" id="hint" hidden></p>
-
-  <ol class="guesses" id="guesses"></ol>
 
   <section id="playArea">
     <form class="form" id="form" autocomplete="off">
@@ -156,19 +179,19 @@ footer{font-size:12px;color:var(--muted)}
         <input id="guess" type="text" placeholder="Sök låt eller artist…" aria-label="Din gissning" role="combobox" aria-expanded="false" aria-controls="sugg">
         <ul class="sugg" id="sugg" role="listbox" hidden></ul>
       </div>
-      <button type="button" class="btn" id="skip">Hoppa över</button>
-      <button type="submit" class="btn primary">Gissa</button>
+      <div class="actions"><button type="button" class="btn" id="skip">Hoppa över</button>
+      <button type="submit" class="btn primary">Gissa</button></div>
     </form>
     <p class="msg" id="msg"></p>
   </section>
 
   <section class="result" id="result" hidden></section>
   <section class="stats" id="stats" aria-label="Statistik"></section>
-  <footer>Varje låt är omgjord till noter (Demucs + Basic Pitch) och spelas med instrumentljud från FluidR3-soundfonten, som en cover. Originalet hörs efter rundan. Rätt artist men fel låt markeras gult.</footer>
+  <footer>Varje låt är omgjord till noter (Demucs + Basic Pitch + pYIN) och spelas med instrumentljud från FluidR3-soundfonten, som en cover. Originalet hörs efter rundan. Rätt artist men fel låt markeras gult.</footer>
 </div>
 
 <script>
-const NAMES = {drums:'Trummor', bass:'Bas', piano:'Piano', guitar:'Gitarr', other:'Synt & övrigt', vocals:'Sång'};
+const NAMES = {drums:'Trummor', bass:'Bas', piano:'Piano', guitar:'Gitarr', other:'Synt', vocals:'Sång (cover)'};
 const $ = id => document.getElementById(id);
 const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
 const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -228,8 +251,23 @@ function save(){ if(state.mode==='daily') store.set('bandlek:day:'+state.no,{id:
 
 // ---------- Ljud: låten spelas om med riktiga instrumentljud (FluidR3-soundfont via WebAudioFont) ----------
 const SF = n => `_${n}_FluidR3_GM_sf2_file`;
-const TONES = {bass:SF('tone_0330'), piano:SF('tone_0000'), guitar:SF('tone_0270'), other:SF('tone_0050'), vocals:SF('tone_0650')};
-const DRUMS = {k:[36,SF('drum_36_0'),.75], s:[38,SF('drum_38_0'),.6], h:[42,SF('drum_42_0'),.35], o:[46,SF('drum_46_0'),.35], c:[49,SF('drum_49_0'),.3]};
+// Instrument efter genre, så att varje låt låter mer som sin stil
+const KITS = {standard:0, rock:16, elektro:24, tr808:25};
+function soundSet(s, n){
+  const t = new Set(s.tags||[]);
+  const set = {bass:'0330', piano:'0000', guitar:'0270', other:'0050', vocals:'0650', kit:'standard'};
+  if(t.has('rock')) Object.assign(set, {guitar:'0290', kit:'rock'});
+  else if(t.has('dans')) Object.assign(set, {bass:'0390', other:'0810', kit:'elektro'});
+  else if(t.has('rnb')) Object.assign(set, {bass:'0380', other:'0890', kit:'tr808'});
+  else if(t.has('disco')) Object.assign(set, {other:'0480'});
+  else if(s.y>=2010) Object.assign(set, {other:'0890', kit:'elektro'});   // modern pop: syntmatta och elektroniska trummor
+  // Syntmatta och stråkar tonar in långsamt och hörs inte på korta toner: då blir det elpiano i stället
+  const ev = (n && n.tracks.other) || [], lens = ev.map(e=>e[1]).sort((a,b)=>a-b), med = lens.length ? lens[lens.length>>1] : 0;
+  if((set.other==='0890' || set.other==='0480') && med < .5) set.other = '0050';
+  return set;
+}
+const DRUM_NOTES = {k:[36,.75], s:[38,.6], h:[42,.35], o:[46,.35], c:[49,.3]};
+let TONES={}, DRUMS={};
 const LEVEL = {bass:.7, piano:.42, guitar:.42, other:.34, vocals:.66};
 const PAN = {drums:0, bass:0, piano:.3, guitar:-.35, other:.2, vocals:0};
 const SEND = {drums:.12, bass:0, piano:.28, guitar:.2, other:.32, vocals:.24};
@@ -240,38 +278,45 @@ function roomImpulse(){
   for(let c=0;c<2;c++){ const d=impulse.getChannelData(c); for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3)*.5; }
   return impulse;
 }
-let notes=null, stages=[], original=null, player=null, soundsReady=null;
+let notes=null, stages=[], original=null, player=null, playerReady=null, loopOn=false;
+const loaded=new Set();
 
 function loadScript(src){ return new Promise((ok,fail)=>{ const el=document.createElement('script'); el.src=src; el.onload=ok; el.onerror=()=>fail(new Error(src)); document.head.appendChild(el); }); }
 function ensureCtx(){ if(!ctx) ctx=new (window.AudioContext||window.webkitAudioContext)(); if(ctx.state==='suspended') ctx.resume(); }
-function loadSounds(){
-  if(soundsReady) return soundsReady;
-  const vars=[...Object.values(TONES), ...Object.values(DRUMS).map(d=>d[1])];
-  soundsReady = loadScript('sf/WebAudioFontPlayer.js')
-    .then(()=>Promise.all(vars.map(v=>loadScript(`sf/${v.replace(/^_tone_/,'').replace(/^_drum_/,'128')}.js`))))
-    .then(()=>{ ensureCtx(); player=new WebAudioFontPlayer(); vars.forEach(v=>player.adjustPreset(ctx, window[v])); });
-  return soundsReady;
+// Laddar bara de instrument som låten behöver
+async function loadSounds(song, n){
+  if(!playerReady) playerReady = loadScript('sf/WebAudioFontPlayer.js').then(()=>{ ensureCtx(); player=new WebAudioFontPlayer(); });
+  await playerReady;
+  const set=soundSet(song, n), kit=KITS[set.kit];
+  TONES = Object.fromEntries(['bass','piano','guitar','other','vocals'].map(k=>[k, SF('tone_'+set[k])]));
+  DRUMS = Object.fromEntries(Object.entries(DRUM_NOTES).map(([k,[note,lvl]])=>[k,[note, SF(`drum_${note}_${kit}`), lvl]]));
+  const vars=[...Object.values(TONES), ...Object.values(DRUMS).map(d=>d[1])].filter(v=>!loaded.has(v));
+  await Promise.all(vars.map(v=>loadScript(`sf/${v.replace(/^_tone_/,'').replace(/^_drum_/,'128')}.js`).then(()=>{ player.adjustPreset(ctx, window[v]); loaded.add(v); })));
 }
-
 // Bygger instrumentstegen som i Bandle: trummor, bas, ackord-/melodiinstrument, sång.
 // Instrument som spelar lite får inget eget steg utan slås ihop med ett annat, så att
 // varje steg ger tillräckligt att gå på.
 const HARM = ['piano','guitar','other'];
 function buildStages(n){
-  const rate = t => (n.tracks[t]||[]).length / n.dur;
+  // Räkna bara toner inom den del av låten som faktiskt spelas (från där trummor/bas börjar)
+  const first = Math.min(...['drums','bass'].map(t=>(n.tracks[t]||[])[0]?.[0] ?? Infinity));
+  const from = isFinite(first) ? Math.max(0, first-.25) : 0, len = Math.max(1, n.dur-from);
+  const inClip = t => (n.tracks[t]||[]).filter(e=>e[0]>=from);
+  const rate = t => inClip(t).length / len;
   const groups = [];
   if(rate('drums') < 3.5 || rate('bass') < 1.4) groups.push([{t:'drums'},{t:'bass'}]);   // glesa trummor eller svag bas: ett gemensamt steg
   else groups.push([{t:'drums'}],[{t:'bass'}]);
-  const harm = HARM.filter(t=>rate(t)>0).sort((a,b)=>rate(b)-rate(a));
+  const harm = HARM.filter(t=>inClip(t).length>=8).sort((a,b)=>rate(b)-rate(a));        // för få toner: inget eget steg
   const hg = harm.filter(t=>rate(t)>=1.5).map(t=>[{t}]);
   const weak = harm.filter(t=>rate(t)<1.5).map(t=>({t}));
   if(weak.length){ if(hg.length) hg[hg.length-1].push(...weak); else hg.push(weak); }   // svaga instrument följer med ett annat
   while(hg.length>2){ const x=hg.pop(); hg[hg.length-1].push(...x); }
   groups.push(...hg, [{t:'vocals'}]);
-  // För få steg: dela ett ensamt ackordinstrument i ackord och slinga
-  if(groups.length<5){ const i=groups.findIndex(g=>g.length===1&&HARM.includes(g[0].t));
-    if(i>=0){ const t=groups[i][0].t, ps=n.tracks[t].map(e=>e[2]).sort((a,b)=>a-b), med=ps[ps.length>>1];
-      groups.splice(i,1,[{t,lo:true,med}],[{t,hi:true,med}]); } }
+  // För få steg: dela ett tätt spelande ackordinstrument i ackord och slinga, om båda delarna blir hörbara
+  if(groups.length<5){ const i=groups.findIndex(g=>g.length===1&&HARM.includes(g[0].t)&&rate(g[0].t)>=2.5);
+    if(i>=0){ const t=groups[i][0].t, ev=inClip(t), ps=ev.map(e=>e[2]).sort((a,b)=>a-b), med=ps[ps.length>>1];
+      const lo=ev.filter(e=>e[2]<med).length;
+      if(lo>=ev.length*.25 && ev.length-lo>=ev.length*.25) groups.splice(i,1,[{t,lo:true,med}],[{t,hi:true,med}]); } }
   return groups;
 }
 const partName = p => NAMES[p.t] + (p.lo?' (ackord)':p.hi?' (slinga)':'');
@@ -279,18 +324,21 @@ const stageName = st => st.length ? st.map(partName).join(' + ') : '–';
 
 async function loadSong(){
   const tok=++loadToken, s=song(); notes=null; $('play').disabled=true; $('layerInfo').textContent='Laddar instrument…';
-  const [n] = await Promise.all([fetch(`notes/${s.id}.json`).then(r=>r.json()), loadSounds()]);
+  const n = await fetch(`notes/${s.id}.json`).then(r=>r.json());
+  await loadSounds(s, n);
   if(tok!==loadToken) return;
   notes=n; stages=buildStages(n); buildDesk(); $('play').disabled=false; showIdle(); render();
 }
 
-async function play(n){
+async function play(n, startAt=0){
   stop(); stopOriginal(); ensureCtx(); if(!notes||!player) return;
   if(ctx.state!=='running'){ try{ await ctx.resume(); }catch(e){} }  // Safari/Chrome: väck ljudet inom klicket
   // Hoppa över tystnad i början. Startpunkten sätts av steg 1 och är densamma i alla steg,
   // så att varje steg spelar samma del av låten och lagren ligger synkade.
   const firstHit = Math.min(...stages[0].map(p=>{ const ev=(notes.tracks[p.t]||[]).filter(e=>p.t==='drums'||!(p.lo&&e[2]>=p.med||p.hi&&e[2]<p.med)); return ev.length?ev[0][0]:Infinity; }));
-  const off = isFinite(firstHit) ? Math.max(0, firstHit-.25) : 0;
+  const clipStart = isFinite(firstHit) ? Math.max(0, firstHit-.25) : 0;
+  startAt = Math.max(0, Math.min(startAt, notes.dur-clipStart-.5));
+  const off = clipStart + startAt;                      // allt före 'off' hoppas över (tystnad + ev. spolning)
   const t0=ctx.currentTime+.1-off, master=ctx.createGain(); master.gain.value=window.MUTE?0:volGain(); // window.MUTE: tyst testläge
   const comp=ctx.createDynamicsCompressor(); master.connect(comp); comp.connect(ctx.destination);
   // Gemensamt rum: lite efterklang limmar ihop lagren
@@ -302,11 +350,13 @@ async function play(n){
       const g=ctx.createGain(), pan=ctx.createStereoPanner(); pan.pan.value=PAN[part.t]||0; g.connect(pan); pan.connect(sg);
       const send=ctx.createGain(); send.gain.value=SEND[part.t]||0; g.connect(send); send.connect(verb);
       if(part.t==='drums') ev.forEach(([t,k,v])=>{ const d=DRUMS[k]; if(d&&t>=off) player.queueWaveTable(ctx,g,window[d[1]],t0+t,d[0],k==='c'||k==='o'?1.2:.5,d[2]*(.45+.55*v)); });
-      else ev.forEach(([t,len,m,v])=>{ if(t<off||part.lo&&m>=part.med||part.hi&&m<part.med) return;
-        player.queueWaveTable(ctx,g,window[TONES[part.t]],t0+t,m,Math.max(.12,len+(part.t==='piano'||part.t==='guitar'?.15:0)),LEVEL[part.t]*(.5+.5*v)); });
+      else ev.forEach(([t,len,m,v,bends])=>{ if(t<off||part.lo&&m>=part.med||part.hi&&m<part.med) return;
+        // sångens glidningar och vibrato som tonhöjdsändringar inom tonen
+        const slides = bends ? bends.map(([dt,d])=>({when:dt, delta:d})) : undefined;
+        player.queueWaveTable(ctx,g,window[TONES[part.t]],t0+t,m,Math.max(.12,len+(part.t==='piano'||part.t==='guitar'?.15:0)),LEVEL[part.t]*(.5+.5*v),slides); });
     });
     return {an}; });
-  session={t0:t0+off, dur:notes.dur-off, tr, master, buf:new Float32Array(512)};
+  session={t0:t0+clipStart, dur:notes.dur-clipStart, n, tr, master, buf:new Float32Array(512)};
   setPlaying(true);
 }
 function stop(){ if(!session) return; try{ player.cancelQueue(ctx); }catch(e){} try{session.master.disconnect()}catch(e){}
@@ -345,7 +395,7 @@ function tick(){
   try{
     if(session){ const el=Math.max(0,ctx.currentTime-session.t0), p=Math.min(1,el/session.dur);
       $('fill').style.transform=`scaleX(${p})`; $('time').textContent=`${fmt(Math.min(el,session.dur))} / ${fmt(session.dur)}`;
-      if(el>session.dur+.3) stop();
+      if(el>session.dur+.3){ if(loopOn){ play(session.n); } else stop(); }
     }
     const cd=$('countdown'); if(cd){ const now=new Date(), mid=new Date(now); mid.setHours(24,0,0,0); const s=Math.floor((mid-now)/1000);
       cd.textContent=`Nästa låt om ${Math.floor(s/3600)} h ${String(Math.floor(s/60)%60).padStart(2,'0')} min`; }
@@ -381,37 +431,36 @@ function guess(text){
 function skip(){ if(state.done) return; $('msg').textContent=''; state.guesses.push({k:'skip',t:'Hoppade över'}); advance(); }
 
 // ---------- Rendering ----------
-// Mixern visar alltid 6 steg: instrumentstegen, "Alla instrument" för steg där inget nytt
-// instrument tillkommer, och sist ledtråden.
+// Steglistan som i Bandle: alltid 6 rader. Instrumentstegen, "Hela bandet" för steg där inget
+// nytt instrument tillkommer, och sist ledtråden. Gissningarna visas på stegens rader.
 function buildDesk(){ const list = stages.length ? stages : Array(5).fill(null);
-  const strip = (i,nm) => `<div class="strip"><span class="ch">STEG ${i+1}</span><div class="meter"><i></i></div><span class="led"></span><span class="name" title="${esc(nm)}">${esc(nm)}</span><span class="st"></span></div>`;
-  const filler = i => `<div class="strip full"><span class="ch">STEG ${i+1}</span><div class="cluebox">Allt</div><span class="led"></span><span class="name">Alla instrument</span><span class="st"></span></div>`;
-  let html = list.map((st,i)=>strip(i, st ? stageName(st) : '…')).join('');
-  for(let i=list.length;i<GUESSES-1;i++) html += filler(i);
-  $('desk').innerHTML = html + `<div class="strip clue"><span class="ch">STEG ${GUESSES}</span><div class="cluebox" id="clueBox">?</div><span class="led"></span><span class="name">Ledtråd</span><span class="st"></span></div>`;
-  meters=[...$('desk').querySelectorAll('.meter i')]; }
+  const names = [...list.map(st=>st?stageName(st):'…')];
+  while(names.length<GUESSES-1) names.push('Hela bandet');
+  names.push('Få en ledtråd');
+  $('steps').innerHTML = names.map((nm,i)=>`<li class="${i===GUESSES-1?'clue':''}"><span class="lvl"></span><span class="n">${i+1}</span><span class="nm" title="${esc(nm)}">${esc(nm)}</span><span class="tag"></span></li>`).join('');
+  meters=[...$('steps').querySelectorAll('li')].slice(0,list.length).map(li=>li.querySelector('.lvl')); }
+// Svårighetsgrad med par (förväntat antal gissningar), utifrån hur känd låten är
+function difficulty(s){ const v=s.streams||0;
+  return v>=1.5e9 ? ['Lätt',2] : v>=4e8 ? ['Medel',3] : v>=8e7 ? ['Svår',4] : ['Mycket svår',5]; }
 function render(){
   const s=song(), L=layers(), G=maxGuesses();
   $('mDaily').setAttribute('aria-pressed', state.mode==='daily'); $('mFree').setAttribute('aria-pressed', state.mode==='free');
   $('puzzleNo').textContent = state.mode==='daily' ? `Dagens låt · Nr ${state.no}` : `Träning · ${catDef().name} · ${CATALOG.filter(catDef().f).length} låtar`;
   $('cats').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', String(state.mode==='free' && b.dataset.cat===cat)));
   $('songMeta').textContent = `${CATALOG.length} låtar i spelet`;
+  const [dl,par]=difficulty(s);
   $('facts').innerHTML = `<div><span>Släppt</span><b>${s.y}</b></div>` +
-    `<div><span>Streams på Spotify</span><b>${s.streams?fmtStreams(s.streams):'–'}</b></div>`;
-  const N = nStages(), g = state.guesses.length, clueOn = state.done || g>=GUESSES-1;
-  // steg i (0-baserat) är upplåst när man gjort i gissningar
-  [...$('desk').children].forEach((el,i)=>{ const isClue=i===GUESSES-1, isFull=!isClue && i>=N;
-    const on = state.done || g>=i, nx = !state.done && g===i-1;
-    el.className='strip '+(isClue?'clue ':isFull?'full ':'')+(on?'on':nx?'next':'off');
-    el.querySelector('.st').textContent = on?(isClue?'Visas':'På'):nx?'Nästa':'Låst'; });
-  if($('clueBox')) $('clueBox').textContent = clueOn ? maskName(s.a) : '?';
+    `<div><span>Streams på Spotify</span><b>${s.streams?fmtStreams(s.streams):'–'}</b></div>` +
+    `<div><span>Svårighet</span><b>${dl} (par ${par})</b></div>`;
+  const g = state.guesses.length;
+  [...$('steps').children].forEach((li,i)=>{ const isClue=i===GUESSES-1, guess=state.guesses[i];
+    const on = state.done || g>=i, cur = !state.done && g===i;
+    li.className=(isClue?'clue ':'')+(on?'on':'off')+(cur?' cur':'')+(guess?' '+guess.k:'');
+    li.querySelector('.tag').textContent = guess ? {right:'Rätt',wrong:'Fel',artist:'Rätt artist',skip:'Pass'}[guess.k] : cur ? 'Nu' : on ? '' : '';
+    let gl=li.querySelector('.g'); if(!gl){ gl=document.createElement('span'); gl.className='g'; li.appendChild(gl); }
+    gl.textContent = guess && guess.k!=='skip' ? guess.t : isClue && on ? `Artisten heter ${maskName(s.a)}` : '';
+    gl.hidden = !gl.textContent; });
   if(!$('play').disabled) $('layerInfo').textContent = stages.slice(0,L).map(stageName).join(' + ');
-  const lastTry = !state.done && state.guesses.length===G-1;
-  $('hint').hidden=!lastTry; $('hint').textContent = lastTry ? `Steg 6: alla instrument + ledtråd. Artisten heter ${maskName(s.a)}` : '';
-  $('guesses').innerHTML = Array.from({length:G},(_,i)=>{ const g=state.guesses[i];
-    if(!g) return `<li class="empty"><span class="n">${i+1}</span><span class="t"></span><span class="tag">${i===state.guesses.length&&!state.done?'Nu':''}</span></li>`;
-    const tag={right:'Rätt',wrong:'Fel',artist:'Rätt artist',skip:'Pass'}[g.k];
-    return `<li class="${g.k}"><span class="n">${i+1}</span><span class="t">${esc(g.t)}</span><span class="tag">${tag}</span></li>`; }).join('');
   $('playArea').hidden=state.done;
   const r=$('result'); r.hidden=!state.done;
   if(state.done){ const share=shareText();
@@ -454,6 +503,11 @@ $('guess').addEventListener('blur',()=>setTimeout(closeSugg,120));
 $('form').addEventListener('submit',e=>{ e.preventDefault(); if(!state.done) guess($('guess').value); });
 $('skip').onclick=skip;
 $('play').onclick=()=>{ if(session) stop(); else play(layers()); };
+// Spola ±5 s och upprepa, som i Bandle
+function seek(d){ if(!session||!ctx) return; const cur=ctx.currentTime-session.t0; play(session.n, cur+d); }
+$('back5').onclick=()=>seek(-5);
+$('fwd5').onclick=()=>seek(5);
+$('loopBtn').onclick=()=>{ loopOn=!loopOn; $('loopBtn').setAttribute('aria-pressed', String(loopOn)); };
 $('mDaily').onclick=()=>{ stop(); stopOriginal(); newDaily(); start(); };
 $('mFree').onclick=()=>{ stop(); stopOriginal(); newFree(); start(); };
 

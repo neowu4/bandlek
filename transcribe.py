@@ -193,6 +193,50 @@ def to_scale(m, scale):
     return m
 
 
+
+F0 = ROOT / "cache" / "f0"
+
+
+def vocal_f0(d):
+    """Sångens tonhöjd i halvtoner (MIDI) per 256-sampel-ram, cachad på disk."""
+    F0.mkdir(parents=True, exist_ok=True)
+    cache = F0 / f"{d.name}.npy"
+    if cache.exists():
+        return np.load(cache)
+    y, sr = librosa.load(str(d / "vocals.wav"), sr=22050, mono=True)
+    f0, voiced, _ = librosa.pyin(y, fmin=80, fmax=1100, sr=sr, frame_length=1024, hop_length=256)
+    midi = np.where(voiced, 69 + 12 * np.log2(np.where(f0 > 0, f0, 1) / 440.0), np.nan)
+    np.save(cache, midi)
+    return midi
+
+
+def add_bends(notes, d):
+    """Lägger till sångens glidningar och vibrato: [[tid från tonstart, avvikelse i halvtoner], ...]."""
+    try:
+        midi = vocal_f0(d)
+    except Exception:
+        return notes
+    fps = 22050 / 256
+    v = midi[~np.isnan(midi)]
+    tuning = float(np.median(v - np.round(v))) if len(v) else 0.0   # inspelningens grundstämning
+    out = []
+    for st, ln, m, a in notes:
+        i0, i1 = int(st * fps), int((st + ln) * fps) + 1
+        seg = midi[i0:i1] - tuning - m
+        seg[np.abs(seg) > 1.0] = np.nan                                    # större hopp hör till en annan ton
+        bends = []
+        if len(seg) and np.sum(~np.isnan(seg)) >= max(4, 0.6 * len(seg)):
+            for k in range(len(seg)):                                      # håll senaste värdet över luckor
+                if np.isnan(seg[k]):
+                    seg[k] = seg[k - 1] if k and not np.isnan(seg[k - 1]) else 0.0
+            seg = np.convolve(seg, np.ones(3) / 3, mode="same")          # jämna ut mätbrus
+            if np.max(np.abs(seg)) >= 0.15:
+                for k in range(0, len(seg), 3):                            # en punkt per ~35 ms
+                    bends.append([round(k / fps, 3), round(float(seg[k]), 2)])
+        out.append([st, ln, m, a, bends] if bends else [st, ln, m, a])
+    return out
+
+
 def arrange(raw, d):
     tracks, dur = raw["tracks"], raw["dur"]
     grid = beat_grid(d, dur)
@@ -231,6 +275,8 @@ def arrange(raw, d):
             notes = cap_polyphony(notes, POLY_MAX)
         notes.sort(key=lambda n: n[0])
         out[name] = [[round(s, 3), round(e - s, 3), m, round(a, 2)] for s, e, m, a in notes if e > s]
+        if name == "vocals":
+            out[name] = add_bends(out[name], d)
     return {"dur": dur, "tracks": out}
 
 
