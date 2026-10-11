@@ -318,7 +318,7 @@ function render(){
   if(state.done){ const share=shareText();
     r.innerHTML=`<img src="${esc(s.c)}" alt="Omslag: ${esc(s.al)}">
       <div class="body"><span class="eyebrow">${state.won?`Rätt på försök ${state.guesses.length} av ${G}`:'Inte den här gången'}</span>
-      <h2>${esc(s.t)}</h2><p class="who">${esc(s.a)} · ${esc(s.al)} · ${s.y}</p>
+      <h2>${esc(s.t)}</h2><p class="who">${esc(s.a)} · släppt ${s.y}</p>
       ${state.mode==='daily'?`<div class="share" id="shareBox">${esc(share)}</div>`:''}
       <div class="row"><button class="btn" id="again">Spela hela bandet</button>${s.p?'<button class="btn" id="orig">Spela originalet</button>':''}
         ${state.mode==='daily'?'<button class="btn" id="copy">Kopiera resultat</button>':''}
