@@ -47,7 +47,10 @@ header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-be
 .strip.on .led{background:var(--led);border-color:var(--led);box-shadow:0 0 8px var(--led)}
 .strip .name{font-family:var(--display);font-weight:600;font-size:clamp(13px,3.2vw,19px);letter-spacing:.05em;text-transform:uppercase;line-height:1;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .strip .st{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.strip.off{opacity:.42} .strip.next{opacity:.7} .strip.next .st{color:var(--accent)}
+.strip.off{opacity:.42}
+.cluebox{width:100%;height:132px;display:grid;place-items:center;text-align:center;padding:6px;background:var(--well);border:1px dashed var(--line);border-radius:4px;
+  font-family:var(--display);font-weight:800;font-size:clamp(14px,3.4vw,20px);line-height:1.1;letter-spacing:.04em;overflow-wrap:anywhere;color:var(--muted)}
+.strip.clue.on .cluebox{border-style:solid;border-color:var(--led);color:var(--ink)} .strip.next{opacity:.7} .strip.next .st{color:var(--accent)}
 
 .transport{display:flex;align-items:center;gap:16px}
 .play{flex:none;width:64px;height:64px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
@@ -306,7 +309,8 @@ function skip(){ if(state.done) return; $('msg').textContent=''; state.guesses.p
 // ---------- Rendering ----------
 function buildDesk(){ const list = stages.length ? stages : Array(STAGES).fill(null);
   $('desk').innerHTML=list.map((st,i)=>{ const nm = st ? stageName(st) : '…';
-    return `<div class="strip"><span class="ch">STEG ${i+1}</span><div class="meter"><i></i></div><span class="led"></span><span class="name" title="${esc(nm)}">${esc(nm)}</span><span class="st"></span></div>`; }).join('');
+    return `<div class="strip"><span class="ch">STEG ${i+1}</span><div class="meter"><i></i></div><span class="led"></span><span class="name" title="${esc(nm)}">${esc(nm)}</span><span class="st"></span></div>`; }).join('')
+    + `<div class="strip clue"><span class="ch">STEG 6</span><div class="cluebox" id="clueBox">?</div><span class="led"></span><span class="name">Ledtråd</span><span class="st"></span></div>`;
   meters=[...$('desk').querySelectorAll('.meter i')]; }
 function render(){
   const s=song(), L=layers(), G=maxGuesses();
@@ -315,11 +319,15 @@ function render(){
   $('songMeta').textContent = `${CATALOG.length} låtar i spelet`;
   $('facts').innerHTML = `<div><span>Släppt</span><b>${s.y}</b></div>` +
     `<div><span>Streams på Spotify</span><b>${s.streams?fmtStreams(s.streams):'–'}</b></div>`;
-  [...$('desk').children].forEach((el,i)=>{ const on=i<L, nx=i===L&&!state.done; el.className='strip '+(on?'on':nx?'next':'off');
-    el.querySelector('.st').textContent = on?'På':nx?'Nästa':'Låst'; });
+  const clueOn = state.done || state.guesses.length>=STAGES;
+  [...$('desk').children].forEach((el,i)=>{ const isClue=i===STAGES;
+    const on = isClue ? clueOn : i<L, nx = !state.done && (isClue ? !clueOn && L===STAGES && state.guesses.length===STAGES-1 : i===L);
+    el.className='strip '+(isClue?'clue ':'')+(on?'on':nx?'next':'off');
+    el.querySelector('.st').textContent = on?(isClue?'Visas':'På'):nx?'Nästa':'Låst'; });
+  if($('clueBox')) $('clueBox').textContent = clueOn ? maskName(s.a) : '?';
   if(!$('play').disabled) $('layerInfo').textContent = stages.slice(0,L).map(stageName).join(' + ');
   const lastTry = !state.done && state.guesses.length===G-1;
-  $('hint').hidden=!lastTry; $('hint').textContent = lastTry ? `Steg 6, ledtråd: artisten heter ${maskName(s.a)}` : '';
+  $('hint').hidden=!lastTry; $('hint').textContent = lastTry ? `Steg 6: alla instrument + ledtråd. Artisten heter ${maskName(s.a)}` : '';
   $('guesses').innerHTML = Array.from({length:G},(_,i)=>{ const g=state.guesses[i];
     if(!g) return `<li class="empty"><span class="n">${i+1}</span><span class="t"></span><span class="tag">${i===state.guesses.length&&!state.done?'Nu':''}</span></li>`;
     const tag={right:'Rätt',wrong:'Fel',artist:'Rätt artist',skip:'Pass'}[g.k];
