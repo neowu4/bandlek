@@ -4,3 +4,4 @@ __pycache__/
 .DS_Store
 # Ljudfilerna är upphovsrättsskyddade (iTunes-klipp) – genereras lokalt med build.py
 public/stems/
+.venv-bp/
