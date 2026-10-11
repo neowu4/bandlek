@@ -54,6 +54,11 @@ header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-be
 .tl-top span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .track{position:relative;height:10px;background:var(--well);border-radius:5px;overflow:hidden;border:1px solid var(--line)}
 .track .fill{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:var(--accent)}
+.vol{flex:none;display:flex;align-items:center;gap:6px}
+.vol button{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:var(--panel);display:grid;place-items:center;padding:0}
+.vol svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.vol input{width:96px;accent-color:var(--accent)}
+@media (max-width:520px){.transport{flex-wrap:wrap}.vol{width:100%}.vol input{flex:1;width:auto}}
 .hint{margin:0;font-family:var(--mono);font-size:13px;color:var(--accent)}
 
 .guesses{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
@@ -117,6 +122,10 @@ footer{font-size:12px;color:var(--muted)}
       <div class="tl-top"><span id="layerInfo">Laddar ljud…</span><span id="time">0:00 / 0:00</span></div>
       <div class="track"><div class="fill" id="fill"></div></div>
     </div>
+    <div class="vol">
+      <button type="button" id="muteBtn" aria-label="Stäng av ljudet"><svg viewBox="0 0 24 24" id="volIcon"></svg></button>
+      <input type="range" id="vol" min="0" max="100" step="1" value="80" aria-label="Volym">
+    </div>
   </section>
   <p class="hint" id="hint" hidden></p>
 
@@ -175,9 +184,11 @@ async function loadSong(){
   if(tok!==loadToken) return;
   buffers=Object.fromEntries(out); $('play').disabled=false; render();
 }
-function play(n){
+async function play(n){
   stop(); ensureCtx(); const s=song(); if(!buffers[s.stems[0]]) return;
-  const t0=ctx.currentTime+.05, master=ctx.createGain(); master.gain.value=window.MUTE?0:.9; // MUTE: tyst testläge, mätarna rör sig ändå master.connect(ctx.destination);
+  if(ctx.state!=='running'){ try{ await ctx.resume(); }catch(e){} }  // Safari/Chrome: väck ljudet inom klicket
+  const t0=ctx.currentTime+.05, master=ctx.createGain(); master.gain.value=window.MUTE?0:volGain(); master.connect(ctx.destination);
+  // window.MUTE: tyst testläge, mätarna rör sig ändå
   const tr=s.stems.map((st,i)=>{ const an=ctx.createAnalyser(); an.fftSize=512; an.connect(master);
     let src=null; if(i<n){ src=ctx.createBufferSource(); src.buffer=buffers[st]; src.connect(an); src.start(t0); } return {an,src}; });
   session={t0, dur:buffers[s.stems[0]].duration, tr, master, buf:new Float32Array(512)};
@@ -185,6 +196,22 @@ function play(n){
 }
 function stop(){ if(!session) return; session.tr.forEach(t=>{ try{t.src&&t.src.stop()}catch(e){} }); try{session.master.disconnect()}catch(e){}
   session=null; setPlaying(false); meters.forEach(m=>m.style.transform='scaleY(0)'); }
+// ---------- Volym ----------
+let vol = store.get('bandlek:vol',{v:80,muted:false});
+const volGain = () => vol.muted ? 0 : Math.pow(vol.v/100, 2);   // kvadratisk kurva känns jämnare för örat
+function applyVol(){
+  $('vol').value=vol.v;
+  const off = vol.muted || vol.v===0;
+  $('volIcon').innerHTML = '<path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/>' +
+    (off ? '<path d="M16 9l5 6M21 9l-5 6"/>' : vol.v<50 ? '<path d="M16 9.5a3.5 3.5 0 010 5"/>' : '<path d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10"/>');
+  $('muteBtn').setAttribute('aria-label', off ? 'Slå på ljudet' : 'Stäng av ljudet');
+  if(session && ctx && !window.MUTE) session.master.gain.setTargetAtTime(volGain(), ctx.currentTime, .02);
+  store.set('bandlek:vol', vol);
+}
+$('vol').addEventListener('input', e=>{ vol.v=+e.target.value; vol.muted=false; applyVol(); });
+$('muteBtn').onclick=()=>{ if(vol.v===0){ vol.v=60; vol.muted=false; } else vol.muted=!vol.muted; applyVol(); };
+applyVol();
+
 const PLAY='<path d="M7 4.5v15l13-7.5z"/>', STOP='<path d="M6 6h12v12H6z"/>';
 function setPlaying(p){ $('playIcon').innerHTML=p?STOP:PLAY; $('play').setAttribute('aria-label',p?'Stoppa':'Spela'); if(!p) $('fill').style.transform='scaleX(0)'; }
 const fmt = s => { s=Math.max(0,Math.round(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); };
