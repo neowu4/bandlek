@@ -77,9 +77,12 @@ def main():
     CACHE.mkdir(exist_ok=True); STEMS_DIR.mkdir(parents=True, exist_ok=True)
 
     for line in lines:
+        line, _, tagstr = line.partition(" | ")
+        tags = [t.strip() for t in tagstr.split(",") if t.strip()]
         artist, _, title = line.partition(" - ")
         sid = slug(f"{artist}-{title}")
         if sid in old and not force and (STEMS_DIR / sid).exists():
+            old[sid]["tags"] = tags
             catalog.append(old[sid]); print(f"✓ {line} (klar sedan tidigare)"); continue
         print(f"→ {line}")
         hit = itunes(artist, title)
@@ -104,7 +107,7 @@ def main():
             "id": sid, "t": clean_title(hit["trackName"]), "a": hit["artistName"],
             "y": int(hit.get("releaseDate", "0000")[:4]), "al": hit.get("collectionName", ""),
             "c": hit.get("artworkUrl100", "").replace("100x100bb", "600x600bb"),
-            "stems": stems,
+            "stems": stems, "tags": tags,
         })
         print(f"   stems: {', '.join(stems)}")
         catalog_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=1))

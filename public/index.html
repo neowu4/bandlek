@@ -31,6 +31,13 @@ header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-be
 .modes{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--panel)}
 .modes button{border:0;background:none;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:500;color:var(--muted)}
 .modes button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.cats{display:flex;flex-wrap:wrap;gap:6px}
+.cats button{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 12px;font-size:13px;color:var(--ink);white-space:nowrap}
+.cats button small{color:var(--muted);font-family:var(--mono);font-size:11px;margin-left:4px}
+.cats button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.cats button[aria-pressed="true"] small{color:inherit;opacity:.8}
+.cats .sep{width:1px;background:var(--line);margin:2px 4px}
+@media (max-width:520px){.cats{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;margin-inline:-16px;padding-inline:16px}}
 .meta{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 
 .facts{display:flex;flex-wrap:wrap;gap:8px 28px;border-block:1px solid var(--line);padding-block:10px}
@@ -122,6 +129,7 @@ footer{font-size:12px;color:var(--muted)}
     </div>
   </header>
 
+  <nav class="cats" id="cats" aria-label="Kategori"></nav>
   <div class="meta"><span id="puzzleNo">Laddar…</span><span id="songMeta"></span></div>
   <section class="facts" id="facts" aria-label="Om låten"></section>
   <section class="desk" id="desk" aria-label="Instrument"></section>
@@ -189,7 +197,30 @@ function newDaily(){ const n=dayNo(); const saved=store.get('bandlek:day:'+n,nul
   state={mode:'daily', no:n, song:idx, guesses:[], done:false, won:false};
   if(saved.id===CATALOG[idx].id) Object.assign(state,{guesses:saved.guesses||[],done:!!saved.done,won:!!saved.won});
   save(); }
-function newFree(){ let i; do{ i=Math.floor(Math.random()*CATALOG.length); }while(state && i===state.song && CATALOG.length>1);
+// ---------- Kategorier ----------
+const isSv = s => (s.tags||[]).includes('sv');
+const has = t => s => (s.tags||[]).includes(t);
+const decade = d => s => Math.floor(s.y/10)*10===d;
+const CATS = [
+  {id:'all', name:'Alla', f:()=>true},
+  {id:'sv', name:'Svenskt', f:isSv}, {id:'intl', name:'Internationellt', f:s=>!isSv(s)}, null,
+  {id:'pop', name:'Pop', f:has('pop')}, {id:'rock', name:'Rock', f:has('rock')}, {id:'dans', name:'Dans & elektroniskt', f:has('dans')},
+  {id:'disco', name:'Disco & funk', f:has('disco')}, {id:'rnb', name:'R&B & hiphop', f:has('rnb')}, {id:'mello', name:'Mello & Eurovision', f:has('mello')}, null,
+  ...[1970,1980,1990,2000,2010,2020].map(d=>({id:'d'+d, name:String(d).slice(2)+'-tal', f:decade(d)})),
+];
+let cat = store.get('bandlek:cat','all'), recent=[];
+const catDef = () => CATS.find(c=>c&&c.id===cat) || CATS[0];
+function buildCats(){
+  $('cats').innerHTML = CATS.map(c=>{ if(!c) return '<span class="sep" aria-hidden="true"></span>';
+    const n=CATALOG.filter(c.f).length; if(n<3) return '';
+    return `<button type="button" data-cat="${c.id}" aria-pressed="false">${c.name}<small>${n}</small></button>`; }).join('');
+  $('cats').querySelectorAll('button').forEach(b=>b.onclick=()=>{ cat=b.dataset.cat; store.set('bandlek:cat',cat); recent=[]; stop(); stopOriginal(); newFree(); start(); });
+}
+function newFree(){
+  const pool = CATALOG.map((s,i)=>i).filter(i=>catDef().f(CATALOG[i]));
+  let free = pool.filter(i=>!recent.includes(i) && !(state && i===state.song));
+  if(!free.length){ recent=[]; free = pool.filter(i=>!(state && i===state.song)); if(!free.length) free=pool; }
+  const i = free[Math.floor(Math.random()*free.length)]; recent.push(i);
   state={mode:'free', no:null, song:i, guesses:[], done:false, won:false}; }
 function save(){ if(state.mode==='daily') store.set('bandlek:day:'+state.no,{id:song().id,guesses:state.guesses,done:state.done,won:state.won}); }
 
@@ -347,7 +378,8 @@ function buildDesk(){ const list = stages.length ? stages : Array(STAGES).fill(n
 function render(){
   const s=song(), L=layers(), G=maxGuesses();
   $('mDaily').setAttribute('aria-pressed', state.mode==='daily'); $('mFree').setAttribute('aria-pressed', state.mode==='free');
-  $('puzzleNo').textContent = state.mode==='daily' ? `Dagens låt · Nr ${state.no}` : 'Träning · slumpad låt';
+  $('puzzleNo').textContent = state.mode==='daily' ? `Dagens låt · Nr ${state.no}` : `Träning · ${catDef().name} · ${CATALOG.filter(catDef().f).length} låtar`;
+  $('cats').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', String(state.mode==='free' && b.dataset.cat===cat)));
   $('songMeta').textContent = `${CATALOG.length} låtar i spelet`;
   $('facts').innerHTML = `<div><span>Släppt</span><b>${s.y}</b></div>` +
     `<div><span>Streams på Spotify</span><b>${s.streams?fmtStreams(s.streams):'–'}</b></div>`;
@@ -410,7 +442,7 @@ $('mDaily').onclick=()=>{ stop(); stopOriginal(); newDaily(); start(); };
 $('mFree').onclick=()=>{ stop(); stopOriginal(); newFree(); start(); };
 
 function start(){ stages=[]; buildDesk(); render(); loadSong().catch(err=>{ $('layerInfo').textContent='Kunde inte ladda ljudet: '+err.message; }); }
-fetch('catalog.json').then(r=>r.json()).then(c=>{ CATALOG=c.filter(s=>s.tracks&&['drums','bass','vocals'].every(t=>s.tracks.includes(t))); ORDER=shuffled(CATALOG.length); newDaily(); start(); requestAnimationFrame(frame); setInterval(tick,100); })
+fetch('catalog.json').then(r=>r.json()).then(c=>{ CATALOG=c.filter(s=>s.tracks&&['drums','bass','vocals'].every(t=>s.tracks.includes(t))); ORDER=shuffled(CATALOG.length); buildCats(); newDaily(); start(); requestAnimationFrame(frame); setInterval(tick,100); })
   .catch(()=>{ $('puzzleNo').textContent='Hittar ingen catalog.json – kör build.py först'; });
 </script>
 </body>

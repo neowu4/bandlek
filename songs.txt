@@ -1,103 +1,144 @@
-# En låt per rad: Artist - Titel. Kör sedan: .venv/bin/python build.py
-ABBA - Dancing Queen
-ABBA - Mamma Mia
-Avicii - Wake Me Up
-Avicii - Levels
-Roxette - It Must Have Been Love
-Europe - The Final Countdown
-Swedish House Mafia - Don't You Worry Child
-Zara Larsson - Lush Life
-Robyn - Dancing On My Own
-Veronica Maggio - Jag kommer
-Håkan Hellström - Känn ingen sorg för mig Göteborg
-Loreen - Euphoria
-Måns Zelmerlöw - Heroes
-The Cardigans - Lovefool
-Tove Lo - Habits (Stay High)
-Miss Li - Dancing the Whole Way Home
-Kent - Musik non stop
-Queen - Don't Stop Me Now
-Michael Jackson - Billie Jean
-The Weeknd - Blinding Lights
-Ed Sheeran - Shape of You
-Dua Lipa - Levitating
-Coldplay - Viva La Vida
-Toto - Africa
-a-ha - Take On Me
-Mark Ronson - Uptown Funk
-Daft Punk - Get Lucky
-Fleetwood Mac - Dreams
-Oasis - Wonderwall
-Nirvana - Smells Like Teen Spirit
-Eagles - Hotel California
-Adele - Rolling in the Deep
-ABBA - Waterloo
-ABBA - Gimme! Gimme! Gimme!
-Roxette - The Look
-Roxette - Listen to Your Heart
-Ace of Base - All That She Wants
-Ace of Base - The Sign
-Dr. Alban - It's My Life
-Gyllene Tider - Sommartider
-Carola - Fångad av en stormvind
-Mando Diao - Dance With Somebody
-The Ark - It Takes a Fool to Remain Sane
-Icona Pop - I Love It
-Lykke Li - I Follow Rivers
-Robyn - Call Your Girlfriend
-Avicii - The Nights
-Swedish House Mafia - Save the World
-Galantis - Runaway (U & I)
-Loreen - Tattoo
-Eric Saade - Popular
-Zara Larsson - Never Forget You
-Molly Sandén - Freak
-Laleh - Some Die Young
-Veronica Maggio - Satan i gatan
-Oskar Linnros - Från och med du
-Petra Marklund - Händerna mot himlen
-Håkan Hellström - Det kommer aldrig va över för mig
-Smith & Thell - Forgive Me Friend
-Tomas Ledin - Sommaren är kort
-Lisa Nilsson - Himlen runt hörnet
-Miss Li - Bourgeois Shangri-La
-ABBA - Take a Chance on Me
-Roxette - Joyride
-Ace of Base - Beautiful Life
-Robyn - Show Me Love
-The Cardigans - My Favourite Game
-Kent - Dom andra
-Avicii - Waiting For Love
-Alesso - Heroes (we could be)
-Zara Larsson - Ain't My Fault
-Zara Larsson - I Would Like
-Tove Lo - How Long
-Måns Zelmerlöw - Cara Mia
-Danny Saucedo - Amazing
-Benjamin Ingrosso - Dance You Off
-Victor Leksell - Svag
-Molly Sandén - Det bästa kanske inte hänt än
-Tusse - Voices
-Cornelia Jakobs - Hold Me Closer
-Veronica Maggio - Välkommen in
-Håkan Hellström - Kom igen Lena!
-Michael Jackson - Beat It
-Madonna - Like a Prayer
-Whitney Houston - I Wanna Dance with Somebody
-Bon Jovi - Livin' on a Prayer
-Journey - Don't Stop Believin'
-Bee Gees - Stayin' Alive
-Survivor - Eye of the Tiger
-Rick Astley - Never Gonna Give You Up
-Queen - Another One Bites the Dust
-Pharrell Williams - Happy
-Justin Timberlake - Can't Stop the Feeling!
-Harry Styles - As It Was
-Billie Eilish - bad guy
-Taylor Swift - Shake It Off
-Katy Perry - Roar
-Lady Gaga - Bad Romance
-Rihanna - Umbrella
-Bruno Mars - 24K Magic
-Calvin Harris - Summer
-The Killers - Mr. Brightside
+# En låt per rad: Artist - Titel | kategorier
+# Kategorier: sv (svensk), pop, rock, dans, disco, rnb, mello (Melodifestivalen/Eurovision). Årtiondet räknas ut automatiskt.
+# Kör sedan: .venv/bin/python build.py && .venv-bp/bin/python transcribe.py && python3 stats.py
+ABBA - Dancing Queen | sv, pop, disco
+ABBA - Mamma Mia | sv, pop
+Avicii - Wake Me Up | sv, dans
+Avicii - Levels | sv, dans
+Roxette - It Must Have Been Love | sv, pop
+Europe - The Final Countdown | sv, rock
+Swedish House Mafia - Don't You Worry Child | sv, dans
+Zara Larsson - Lush Life | sv, pop
+Robyn - Dancing On My Own | sv, pop, dans
+Veronica Maggio - Jag kommer | sv, pop
+Håkan Hellström - Känn ingen sorg för mig Göteborg | sv, rock
+Loreen - Euphoria | sv, dans, mello
+Måns Zelmerlöw - Heroes | sv, pop, mello
+The Cardigans - Lovefool | sv, pop
+Tove Lo - Habits (Stay High) | sv, pop
+Miss Li - Dancing the Whole Way Home | sv, pop
+Kent - Musik non stop | sv, rock
+Queen - Don't Stop Me Now | rock
+Michael Jackson - Billie Jean | pop, disco
+The Weeknd - Blinding Lights | pop
+Ed Sheeran - Shape of You | pop
+Dua Lipa - Levitating | pop, disco
+Coldplay - Viva La Vida | pop, rock
+Toto - Africa | rock
+a-ha - Take On Me | pop
+Mark Ronson - Uptown Funk | disco
+Daft Punk - Get Lucky | dans, disco
+Fleetwood Mac - Dreams | rock
+Nirvana - Smells Like Teen Spirit | rock
+Eagles - Hotel California | rock
+Adele - Rolling in the Deep | pop
+ABBA - Waterloo | sv, pop, mello
+ABBA - Gimme! Gimme! Gimme! | sv, pop, disco
+Roxette - The Look | sv, pop, rock
+Roxette - Listen to Your Heart | sv, pop, rock
+Ace of Base - All That She Wants | sv, pop, dans
+Ace of Base - The Sign | sv, pop, dans
+Dr. Alban - It's My Life | sv, dans
+Gyllene Tider - Sommartider | sv, pop, rock
+Carola - Fångad av en stormvind | sv, pop, mello
+Mando Diao - Dance With Somebody | sv, rock
+The Ark - It Takes a Fool to Remain Sane | sv, rock
+Icona Pop - I Love It | sv, pop, dans
+Lykke Li - I Follow Rivers | sv, pop
+Robyn - Call Your Girlfriend | sv, pop, dans
+Avicii - The Nights | sv, dans
+Swedish House Mafia - Save the World | sv, dans
+Galantis - Runaway (U & I) | sv, dans
+Loreen - Tattoo | sv, pop, mello
+Eric Saade - Popular | sv, pop, mello
+Zara Larsson - Never Forget You | sv, pop
+Molly Sandén - Freak | sv, pop, mello
+Laleh - Some Die Young | sv, pop
+Veronica Maggio - Satan i gatan | sv, pop
+Oskar Linnros - Från och med du | sv, pop
+Petra Marklund - Händerna mot himlen | sv, pop
+Håkan Hellström - Det kommer aldrig va över för mig | sv, rock
+Smith & Thell - Forgive Me Friend | sv, pop
+Tomas Ledin - Sommaren är kort | sv, pop
+Lisa Nilsson - Himlen runt hörnet | sv, pop
+Miss Li - Bourgeois Shangri-La | sv, pop
+ABBA - Take a Chance on Me | sv, pop
+Roxette - Joyride | sv, pop, rock
+Ace of Base - Beautiful Life | sv, pop, dans
+Robyn - Show Me Love | sv, pop, rnb
+The Cardigans - My Favourite Game | sv, rock
+Kent - Dom andra | sv, rock
+Avicii - Waiting For Love | sv, dans
+Alesso - Heroes (we could be) | sv, dans
+Zara Larsson - Ain't My Fault | sv, pop
+Zara Larsson - I Would Like | sv, pop
+Tove Lo - How Long | sv, pop
+Måns Zelmerlöw - Cara Mia | sv, pop, mello
+Danny Saucedo - Amazing | sv, pop, mello
+Benjamin Ingrosso - Dance You Off | sv, pop, mello
+Victor Leksell - Svag | sv, pop
+Molly Sandén - Det bästa kanske inte hänt än | sv, pop
+Tusse - Voices | sv, pop, mello
+Cornelia Jakobs - Hold Me Closer | sv, pop, mello
+Veronica Maggio - Välkommen in | sv, pop
+Håkan Hellström - Kom igen Lena! | sv, rock
+Michael Jackson - Beat It | pop, rock
+Madonna - Like a Prayer | pop
+Whitney Houston - I Wanna Dance with Somebody | pop, dans
+Bon Jovi - Livin' on a Prayer | rock
+Journey - Don't Stop Believin' | rock
+Bee Gees - Stayin' Alive | disco
+Survivor - Eye of the Tiger | rock
+Rick Astley - Never Gonna Give You Up | pop
+Queen - Another One Bites the Dust | rock, disco
+Pharrell Williams - Happy | pop, rnb
+Justin Timberlake - Can't Stop the Feeling! | pop, disco
+Harry Styles - As It Was | pop
+Billie Eilish - bad guy | pop
+Taylor Swift - Shake It Off | pop
+Katy Perry - Roar | pop
+Lady Gaga - Bad Romance | pop, dans
+Rihanna - Umbrella | pop, rnb
+Bruno Mars - 24K Magic | rnb, disco
+Calvin Harris - Summer | dans
+The Killers - Mr. Brightside | rock
+Charlotte Perrelli - Hero | sv, pop, mello
+Lena Philipsson - Det gör ont | sv, pop, mello
+Herreys - Diggi-Loo Diggi-Ley | sv, pop, mello
+John Lundvik - Too Late for Love | sv, pop, mello
+Alcazar - Crying at the Discoteque | sv, dans, disco
+Basshunter - Boten Anna | sv, dans
+September - Cry for You | sv, dans
+E-Type - This Is the Way | sv, dans
+Rednex - Cotton Eye Joe | sv, dans
+Agnes - Release Me | sv, pop, dans
+Per Gessle - Här kommer alla känslorna | sv, pop
+Laleh - Goliat | sv, pop
+Hov1 - Hon vet | sv, pop, rnb
+Earth, Wind & Fire - September | disco
+Chic - Le Freak | disco
+Gloria Gaynor - I Will Survive | disco
+Donna Summer - Hot Stuff | disco
+Kool & The Gang - Celebration | disco
+ABBA - Voulez-Vous | sv, disco
+Beyoncé - Crazy in Love | rnb
+Usher - Yeah! | rnb
+OutKast - Hey Ya! | rnb, pop
+The Black Eyed Peas - I Gotta Feeling | pop, dans
+Drake - Hotline Bling | rnb
+David Guetta - Titanium | dans
+Guns N' Roses - Sweet Child O' Mine | rock
+Red Hot Chili Peppers - Californication | rock
+The White Stripes - Seven Nation Army | rock
+Arctic Monkeys - Do I Wanna Know? | rock
+Foo Fighters - Everlong | rock
+Kiss - I Was Made for Lovin' You | rock, disco
+Imagine Dragons - Believer | rock, pop
+Wham! - Wake Me Up Before You Go-Go | pop
+Cyndi Lauper - Girls Just Want to Have Fun | pop
+Spice Girls - Wannabe | pop
+Britney Spears - ...Baby One More Time | pop
+Backstreet Boys - I Want It That Way | pop
+Olivia Rodrigo - good 4 u | pop, rock
+Miley Cyrus - Flowers | pop
+Sabrina Carpenter - Espresso | pop
