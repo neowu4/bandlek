@@ -58,24 +58,49 @@ def melodic(path, cfg):
 
 
 def drums(path):
+    """Slag per frekvensband: k=bastrumma, s=virvel, h=stängd hi-hat, o=öppen hi-hat, c=cymbal."""
     y, sr = librosa.load(str(path), sr=22050, mono=True)
     hop = 256
+    fps = sr / hop
     S = np.abs(librosa.stft(y, n_fft=1024, hop_length=hop))
     f = librosa.fft_frequencies(sr=sr, n_fft=1024)
-    bands = {"k": (f >= 30) & (f < 150), "s": (f >= 1000) & (f < 4500), "h": (f >= 7000)}
+    bands = {"k": (f >= 30) & (f < 130), "b": (f >= 150) & (f < 350), "s": (f >= 1200) & (f < 5000), "h": (f >= 7000)}
     env = {k: S[m].sum(0) for k, m in bands.items()}
-    ref = {k: np.percentile(v, 97) + 1e-9 for k, v in env.items()}
-    onsets = librosa.onset.onset_detect(y=y, sr=sr, hop_length=hop, backtrack=False, units="frames", delta=0.06)
+    ref = {k: np.percentile(v, 98) + 1e-9 for k, v in env.items()}
+
+    def peaks(k, delta, wait):
+        e = env[k] / ref[k]
+        flux = np.maximum(0, np.diff(e, prepend=e[0]))
+        flux /= np.percentile(flux, 99.5) + 1e-9
+        return librosa.util.peak_pick(flux, pre_max=3, post_max=3, pre_avg=8, post_avg=8, delta=delta, wait=wait)
+
+    def level(k, fr, off=0):
+        return float(env[k][fr + off: fr + off + 4].max(initial=0) / ref[k])
+
     hits = []
-    for fr in onsets:
-        w = slice(fr, fr + 4)
-        t = round(float(fr * hop / sr), 3)
-        r = {k: float(env[k][w].max() / ref[k]) for k in env}
-        # bastrumma och virvel läcker in i diskanten; kräv tydlig diskant för hi-hat
-        if r["k"] > 0.45: hits.append([t, "k", round(min(1, r["k"]), 2)])
-        if r["s"] > 0.5 and r["s"] > r["h"] * 0.8: hits.append([t, "s", round(min(1, r["s"]), 2)])
-        elif r["h"] > 0.35: hits.append([t, "h", round(min(1, r["h"]), 2)])
-    return hits
+    for fr in peaks("k", 0.12, int(0.08 * fps)):
+        if level("k", fr) > 0.3:
+            hits.append([fr, "k", level("k", fr)])
+    # Virvel och hi-hat överlappar i mellanregistret. Dela upp kandidaterna i två grupper
+    # efter förhållandet mitt/diskant (1D k-means): gruppen med mest mitt är virveln.
+    # Virveln känns igen på sin "kropp" (150-350 Hz), som hi-hatten saknar.
+    # Bastrumman läcker också dit, så kroppen måste vara stark i förhållande till bastrumman.
+    snares = []
+    for fr in peaks("b", 0.12, int(0.08 * fps)):
+        rb, rk = level("b", fr), level("k", fr)
+        if rb > 0.45 and rb > rk * 0.9:
+            hits.append([fr, "s", max(rb, level("s", fr))]); snares.append(fr)
+    for fr in peaks("h", 0.08, int(0.05 * fps)):
+        if any(abs(fr - s) <= 2 for s in snares):
+            continue  # virvelns brus i diskanten
+        rh = level("h", fr)
+        if rh < 0.2 or level("b", fr) > 0.5:
+            continue  # för svagt, eller ett virvel-/bastrummeslag
+        tail = level("h", fr, int(0.3 * fps)) / max(rh, 1e-9)
+        kind = "c" if rh > 0.8 and tail > 0.55 else "o" if level("h", fr, int(0.12 * fps)) / max(rh, 1e-9) > 0.5 else "h"
+        hits.append([fr, kind, rh])
+    hits.sort()
+    return [[round(fr / fps, 3), k, round(min(1.0, v), 2)] for fr, k, v in hits]
 
 
 def itunes_preview(artist, title):
