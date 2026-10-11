@@ -68,7 +68,9 @@ def main():
     for s in cat:
         if s.get("streams") and not force:
             continue
-        ids = spotify_artist_ids(s["a"])
+        # "Zara Larsson & MNEK" -> prova även huvudartisten
+        names = [s["a"]] + [n for n in [re.split(r" & |, | feat\.? | x ", s["a"])[0].strip()] if n != s["a"]]
+        ids = next((r for r in map(spotify_artist_ids, names) if r), [])
         st = streams(ids, s["t"]) if ids else None
         if st:
             s["streams"], s["sp"] = st

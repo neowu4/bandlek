@@ -774,5 +774,771 @@
   "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/89/27/1b/89271b8c-74c5-955a-ed3b-86e44e5012bf/mzaf_14153268409398031391.plus.aac.p.m4a",
   "streams": 2503158955,
   "sp": "1c8gk2PeTE04A1pIDH9YMk"
+ },
+ {
+  "id": "abba-waterloo",
+  "t": "Waterloo",
+  "a": "ABBA",
+  "y": 1974,
+  "al": "Waterloo (Bonus Track Version)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/86/ad/d4/86add411-f04a-45ae-c33e-1adb76114e0c/14UMGIM06757.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d1/05/00/d1050064-4ebf-86eb-cb59-2360d40d56c4/mzaf_4015870713340026113.plus.aac.p.m4a",
+  "streams": 501957015,
+  "sp": "3Dy4REq8O09IlgiwuHQ3sk"
+ },
+ {
+  "id": "abba-gimme-gimme-gimme",
+  "t": "Gimme! Gimme! Gimme!",
+  "a": "ABBA",
+  "y": 1979,
+  "al": "Voulez-Vous (Bonus Track Version)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9d/47/d2/9d47d24b-c35d-5db2-0fe7-3a07670adc44/14UMGIM07612.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a9/15/a0/a915a073-c357-4b8b-87f9-9a5cf3740d08/mzaf_16771553305516533206.plus.aac.p.m4a",
+  "streams": 1276571546,
+  "sp": "3vkQ5DAB1qQMYO4Mr9zJN6"
+ },
+ {
+  "id": "roxette-the-look",
+  "t": "The Look",
+  "a": "Roxette",
+  "y": 1989,
+  "al": "Look Sharp!",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c5/0f/58/c50f58cd-b6d8-3e90-d3a6-dbd17977597a/5021732590466.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4c/f4/81/4cf48194-d81e-6685-9fd8-d079bb1555a2/mzaf_13802639957947615946.plus.aac.p.m4a",
+  "streams": 538679181,
+  "sp": "7akWKDSf4k0Q0AHGoG91hu"
+ },
+ {
+  "id": "roxette-listen-to-your-heart",
+  "t": "Listen to Your Heart",
+  "a": "Roxette",
+  "y": 1988,
+  "al": "A Collection of Roxette Hits! - Their 20 Greatest Songs!",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/f3/bb/c5/f3bbc53d-cd67-efd3-b081-0ffbfd2350dc/dj.fpigpivp.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/44/a9/af/44a9afd7-ccbf-89ca-56d7-f76251277c36/mzaf_16945212105396642807.plus.aac.p.m4a",
+  "streams": 686596749,
+  "sp": "4YlNHvZTBAgoS6m6lJU2tU"
+ },
+ {
+  "id": "ace-of-base-all-that-she-wants",
+  "t": "All That She Wants",
+  "a": "Ace of Base",
+  "y": 1992,
+  "al": "The Sign (2015 Remastered Version)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/42/59/8b/42598b61-bd54-aaa3-5280-d711569800b6/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/57/3c/c3/573cc3c6-8d58-4803-2233-f985b7f0848f/mzaf_6754509534843629913.plus.aac.p.m4a",
+  "streams": 825465355,
+  "sp": "12BbMJsJi65mxneq6c9Lm7"
+ },
+ {
+  "id": "ace-of-base-the-sign",
+  "t": "The Sign",
+  "a": "Ace of Base",
+  "y": 1993,
+  "al": "The Sign (2015 Remastered Version)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/42/59/8b/42598b61-bd54-aaa3-5280-d711569800b6/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1f/cc/91/1fcc916e-a50f-0df8-8e3b-9ac479b71aff/mzaf_11069912349531880921.plus.aac.p.m4a",
+  "streams": 502948028,
+  "sp": "3JXzEzQCYrblna7SCaegAm"
+ },
+ {
+  "id": "dr-alban-it-s-my-life",
+  "t": "It's My Life",
+  "a": "Dr. Alban",
+  "y": 1992,
+  "al": "One Love",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/ba/4e/95/ba4e9574-00dd-c45e-6266-6ced2615c32d/0859381174134.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d9/08/ae/d908ae45-48da-63bf-fb7a-bb40bf4a1431/mzaf_5161144510062082665.plus.aac.p.m4a",
+  "streams": 358145566,
+  "sp": "4TOGkYS141L15SkVosAp7Z"
+ },
+ {
+  "id": "gyllene-tider-sommartider",
+  "t": "Sommartider",
+  "a": "Gyllene Tider",
+  "y": 1982,
+  "al": "GT25 - Samtliga Hits!",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/35/1e/74/351e74cf-d312-ef37-5c54-2af34b486ee7/7332334446333.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/54/ae/7f/54ae7fe6-54c1-04dc-1299-62ec7464df77/mzaf_3165199864684538965.plus.aac.p.m4a",
+  "streams": 81017290,
+  "sp": "77CnY7SoEcJtEJxzgt0Y6s"
+ },
+ {
+  "id": "carola-fangad-av-en-stormvind",
+  "t": "Fångad av en stormvind",
+  "a": "Carola",
+  "y": 1991,
+  "al": "Carola: Hits 25 år",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music/60/16/81/mzi.bwyiyced.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c7/98/93/c7989338-d4b0-97a8-5879-00ecf70341fb/mzaf_726353087150170662.plus.aac.p.m4a",
+  "streams": 41647778,
+  "sp": "06xX9E1BTTwyOwyaBuszSK"
+ },
+ {
+  "id": "mando-diao-dance-with-somebody",
+  "t": "Dance with Somebody",
+  "a": "Mando Diao",
+  "y": 2009,
+  "al": "Give Me Fire (Deluxe Version)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/5a/68/b1/5a68b116-cd34-95de-710e-ab43ab9f3e28/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a4/ec/c4/a4ecc437-d726-9300-fbfe-160ab1d60717/mzaf_14404696763138079987.plus.aac.p.m4a",
+  "streams": 112131603,
+  "sp": "28qkNp9shSV8AQrBwxZf48"
+ },
+ {
+  "id": "the-ark-it-takes-a-fool-to-remain-sane",
+  "t": "It Takes a Fool To Remain Sane",
+  "a": "The Ark",
+  "y": 2000,
+  "al": "We Are the Ark",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4c/d8/5b/4cd85bda-5d6d-4a50-ac4b-2134b2064679/0724385031557_1401x1401_300dpi.tif/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b6/36/6e/b6366e8e-0e82-94de-dea6-840d19ee4c0b/mzaf_2797133449841142004.plus.aac.p.m4a",
+  "streams": 32701001,
+  "sp": "5S8EZuiSNFR2N5eG58oISQ"
+ },
+ {
+  "id": "icona-pop-i-love-it",
+  "t": "I Love It",
+  "a": "Icona Pop",
+  "y": 2012,
+  "al": "Girls, Vol. 1 (Music From the HBO® Original Series)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/d8/4b/91/d84b917a-6f37-d065-94ba-02ac47332073/075679957443.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/cf/b0/47/cfb04786-5c7b-5648-345a-ba1ee2e8b4e4/mzaf_15818711178463577616.plus.aac.p.m4a",
+  "streams": 1477272147,
+  "sp": "3GBnGi8VktRx2Dr3Abn6m6"
+ },
+ {
+  "id": "lykke-li-i-follow-rivers",
+  "t": "I Follow Rivers",
+  "a": "Lykke Li",
+  "y": 2011,
+  "al": "Wounded Rhymes",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/b4/e3/e7/b4e3e7d2-eea2-357e-506e-81ab6ad0c75b/5099909650251.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c6/b7/8f/c6b78f05-7b5c-9ab7-27d5-13d48c19ac55/mzaf_8898544111850518614.plus.aac.p.m4a",
+  "streams": 235116874,
+  "sp": "336ZYcU6poBWi3s8yzRcAD"
+ },
+ {
+  "id": "robyn-call-your-girlfriend",
+  "t": "Call Your Girlfriend",
+  "a": "Robyn",
+  "y": 2011,
+  "al": "Body Talk",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/c8/e7/08/c8e7080e-197a-6ae9-d18c-ed5d7fdda642/5060236630353_3000.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ac/ee/0d/acee0d47-a133-76ee-70b4-45b9ddf9c9c4/mzaf_292131846279783827.plus.aac.p.m4a",
+  "streams": 111340314,
+  "sp": "4zMRCvpzghKCN8jlfSjtT1"
+ },
+ {
+  "id": "avicii-the-nights",
+  "t": "The Nights",
+  "a": "Avicii",
+  "y": 2014,
+  "al": "The Days / Nights - EP",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/35/4d/a0/354da058-972b-dcf9-feec-609895ba8cb2/14UMGIM56567.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/be/6c/ef/be6cef63-e5b6-735d-b422-1780fc9d74c9/mzaf_14665540547155269093.plus.aac.p.m4a",
+  "streams": 2524135218,
+  "sp": "0ct6r3EGTcMLPtrXHDvVjc"
+ },
+ {
+  "id": "swedish-house-mafia-save-the-world",
+  "t": "Save The World",
+  "a": "Swedish House Mafia",
+  "y": 2011,
+  "al": "Save The World - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/81/e5/b1/81e5b145-d600-f0a3-aadd-b82c414ac9f5/5099908299352.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a5/49/b3/a549b324-2c05-ae54-55ce-80490dee4665/mzaf_18125453200132991999.plus.aac.p.m4a",
+  "streams": 294405052,
+  "sp": "2hIwUSQhBcBiw7hwGMfChM"
+ },
+ {
+  "id": "galantis-runaway-u-i",
+  "t": "Runaway",
+  "a": "Galantis",
+  "y": 2014,
+  "al": "Runaway (U & I) - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/87/6d/1c/876d1c18-7777-ca9c-133e-f1fa8f54c00e/075679933492.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/7f/76/667f767b-768e-7625-b8e0-bf9377e9a997/mzaf_12944714671160695459.plus.aac.p.m4a",
+  "streams": 1182840854,
+  "sp": "46lFttIf5hnUZMGvjK0Wxo"
+ },
+ {
+  "id": "loreen-tattoo",
+  "t": "Tattoo",
+  "a": "Loreen",
+  "y": 2023,
+  "al": "Tattoo - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/50/32/fd/5032fddc-e486-956d-a503-7ec6d17af848/22UM1IM46463.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5a/dd/6c/5add6cda-a867-6ed7-44f7-5f1fb84e2273/mzaf_7608913165958434662.plus.aac.p.m4a",
+  "streams": 950218675,
+  "sp": "1DmW5Ep6ywYwxc2HMT5BG6"
+ },
+ {
+  "id": "eric-saade-popular",
+  "t": "Popular",
+  "a": "Eric Saade",
+  "y": 2011,
+  "al": "Saade, Vol. 1",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/51/ac/f7/51acf731-9d8f-8418-f62d-61f5490c5a21/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/56/41/2a/56412a1f-907c-3d8a-a549-c5fb13643af1/mzaf_12233455006546871199.plus.aac.p.m4a",
+  "streams": 35325936,
+  "sp": "64WR5TPXZZ2wsWYA3enKfK"
+ },
+ {
+  "id": "zara-larsson-never-forget-you",
+  "t": "Never Forget You",
+  "a": "Zara Larsson & MNEK",
+  "y": 2015,
+  "al": "So Good",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/74/e6/3b/74e63bb4-d593-f926-85c7-df3ca43fcf3f/886446183473.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/03/b4/33/03b433ec-78ea-65f5-a1df-9259eaf1611d/mzaf_621997061325530498.plus.aac.p.m4a",
+  "streams": 1215361229,
+  "sp": "6hmhG1b4LEyNuashVvuIAo"
+ },
+ {
+  "id": "molly-sanden-freak",
+  "t": "Freak",
+  "a": "Molly Sandén",
+  "y": 2016,
+  "al": "Like No One's Watching - EP",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/90/52/b8/9052b828-e95e-26fb-7e8b-2c36dfb7b204/886445308471.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ac/2d/5a/ac2d5afe-afab-bd3c-938f-9553d1661f89/mzaf_16539779324522096249.plus.aac.p.m4a",
+  "streams": 18943648,
+  "sp": "4ANYfsf6VNO0ucgM7wNzQQ"
+ },
+ {
+  "id": "laleh-some-die-young",
+  "t": "Some Die Young",
+  "a": "Laleh",
+  "y": 2012,
+  "al": "Some Die Young - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music/81/7f/b9/mzi.iwmbvxoz.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview123/v4/f0/04/98/f00498cc-c127-6ea4-7d08-d7a6df1740a8/mzaf_1101782321072566668.plus.aac.p.m4a",
+  "streams": 100353328,
+  "sp": "2bfRfAO1RNWcpNtWJv042o"
+ },
+ {
+  "id": "veronica-maggio-satan-i-gatan",
+  "t": "Satan I Gatan",
+  "a": "Veronica Maggio",
+  "y": 2011,
+  "al": "Satan i gatan (Bonus Version)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/26/30/df/2630df1e-940c-63c9-98da-31123322f32e/00602527693057.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ba/4e/ff/ba4eff7e-6460-a0cc-853f-c8d884be3955/mzaf_6184817092089547894.plus.aac.p.m4a",
+  "streams": 87063750,
+  "sp": "3q8WojYJVZsGClFGFBYdTc"
+ },
+ {
+  "id": "oskar-linnros-fran-och-med-du",
+  "t": "Från och med du",
+  "a": "Oskar Linnros",
+  "y": 2010,
+  "al": "Vilja bli",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/e5/bd/d7/e5bdd7c7-5323-2448-a373-af8efbc2fae7/00602527401133.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d7/67/2b/d7672b8c-04b7-a607-c424-224480c8b68e/mzaf_5002042618395492825.plus.aac.p.m4a",
+  "streams": 117755362,
+  "sp": "553S3UGhLtOluSESni7AkM"
+ },
+ {
+  "id": "petra-marklund-handerna-mot-himlen",
+  "t": "Händerna Mot Himlen",
+  "a": "Petra Marklund",
+  "y": 2012,
+  "al": "Händerna mot himlen - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/66/08/ff/6608fff6-1c7e-5671-e8bd-1545fd7ce49a/886443647428.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8b/e8/a3/8be8a384-30b4-8bd2-2e8f-21c39a328bc2/mzaf_15451122075268953628.plus.aac.p.m4a",
+  "streams": 125615340,
+  "sp": "14AJI1RloVWTh8bJe9gBPM"
+ },
+ {
+  "id": "hakan-hellstrom-det-kommer-aldrig-va-over-for-mig",
+  "t": "Det kommer aldrig va över för mig",
+  "a": "Håkan Hellström",
+  "y": 2013,
+  "al": "Det kommer aldrig va över för mig",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b0/98/3d/b0983d8e-ec86-7c54-fec1-049d68883b24/00602537349920.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b4/b3/a3/b4b3a32b-ff50-ed7b-3d87-daf8ff1f6768/mzaf_1930593558469094740.plus.aac.p.m4a",
+  "streams": 122536569,
+  "sp": "3SjXx3rbNGk8nCho8YEoz5"
+ },
+ {
+  "id": "smith-thell-forgive-me-friend",
+  "t": "Forgive Me Friend",
+  "a": "Smith & Thell",
+  "y": 2018,
+  "al": "Forgive Me Friend (feat. Swedish Jam Factory) - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/e7/84/82/e7848267-3c0e-274a-6544-23d40e65b5e1/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/85/86/758586ea-55d2-f6fa-0ed2-bdf2db0e4cf6/mzaf_751469175933493928.plus.aac.p.m4a",
+  "streams": 129488027,
+  "sp": "3Qb3cNWWslDOy07DUCAxlD"
+ },
+ {
+  "id": "tomas-ledin-sommaren-ar-kort",
+  "t": "Sommaren är kort",
+  "a": "Tomas Ledin",
+  "y": 1998,
+  "al": "Bonus Track Version",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/e9/7a/8e/e97a8ec7-4ef1-7ca7-9442-03e1fcb133ec/00602547192288.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c5/54/0e/c5540ec7-083e-e296-5490-0aef51cf0c1d/mzaf_2494740529028709878.plus.aac.p.m4a",
+  "streams": 45419829,
+  "sp": "0mXJHQQsh6gwGtUZKVIf7b"
+ },
+ {
+  "id": "lisa-nilsson-himlen-runt-hornet",
+  "t": "Himlen Runt Hörnet",
+  "a": "Lisa Nilsson",
+  "y": 1992,
+  "al": "Himlen Runt Hörnet",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5a/49/9f/5a499f45-82b3-8a7f-d5b9-3c0d43f6c71f/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d1/14/83/d1148326-5d64-9717-cd3c-68d7aeca4a41/mzaf_10663543371496217915.plus.aac.p.m4a",
+  "streams": 20895589,
+  "sp": "3KOPtw4AwfNGrP849batuS"
+ },
+ {
+  "id": "miss-li-bourgeois-shangri-la",
+  "t": "Bourgeois Shangri-La",
+  "a": "Miss Li",
+  "y": 2007,
+  "al": "Dancing the Whole Way Home",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f9/df/3d/f9df3da7-db9e-ff3f-e0b2-cbb92a8968b7/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ec/13/7b/ec137b26-9579-e903-38c8-cd72747a1de0/mzaf_1676651629845593544.plus.aac.p.m4a",
+  "streams": 3190083,
+  "sp": "2TdrIDbJkVTLGtpjFgOgbU"
  }
 ]

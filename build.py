@@ -30,7 +30,7 @@ def norm(s):
 
 
 def itunes(artist, title):
-    q = urllib.parse.urlencode({"term": f"{artist} {title}", "entity": "song", "limit": 15, "country": "se"})
+    q = urllib.parse.urlencode({"term": f"{artist} {title}", "entity": "song", "limit": 50, "country": "se"})
     for attempt in range(5):  # iTunes stryper vid många anrop i rad
         try:
             with urllib.request.urlopen(f"https://itunes.apple.com/search?{q}", timeout=20) as r:
@@ -41,7 +41,7 @@ def itunes(artist, title):
     else:
         return None
     res = [x for x in res if x.get("previewUrl")]
-    bad = re.compile(r"remix|instrumental|live|karaoke|acoustic|cover|long-lost|mix\)|demo|remaster.*\d{4}.*version", re.I)
+    bad = re.compile(r"remix|remake|re-recorded|instrumental|live|karaoke|acoustic|cover|long-lost|mix\)|demo|remaster.*\d{4}.*version", re.I)
 
     def score(x):
         s = 0
