@@ -57,7 +57,8 @@ header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-be
 .strip.off{opacity:.42}
 .cluebox{width:100%;height:132px;display:grid;place-items:center;text-align:center;padding:6px;background:var(--well);border:1px dashed var(--line);border-radius:4px;
   font-family:var(--display);font-weight:800;font-size:clamp(14px,3.4vw,20px);line-height:1.1;letter-spacing:.04em;overflow-wrap:anywhere;color:var(--muted)}
-.strip.clue.on .cluebox{border-style:solid;border-color:var(--led);color:var(--ink)} .strip.next{opacity:.7} .strip.next .st{color:var(--accent)}
+.strip.full .cluebox{font-size:clamp(12px,2.8vw,16px)}
+.strip.clue.on .cluebox,.strip.full.on .cluebox{border-style:solid;border-color:var(--led);color:var(--ink)} .strip.next{opacity:.7} .strip.next .st{color:var(--accent)}
 
 .transport{display:flex;align-items:center;gap:16px}
 .play{flex:none;width:64px;height:64px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
@@ -380,10 +381,14 @@ function guess(text){
 function skip(){ if(state.done) return; $('msg').textContent=''; state.guesses.push({k:'skip',t:'Hoppade över'}); advance(); }
 
 // ---------- Rendering ----------
+// Mixern visar alltid 6 steg: instrumentstegen, "Alla instrument" för steg där inget nytt
+// instrument tillkommer, och sist ledtråden.
 function buildDesk(){ const list = stages.length ? stages : Array(5).fill(null);
-  $('desk').innerHTML=list.map((st,i)=>{ const nm = st ? stageName(st) : '…';
-    return `<div class="strip"><span class="ch">STEG ${i+1}</span><div class="meter"><i></i></div><span class="led"></span><span class="name" title="${esc(nm)}">${esc(nm)}</span><span class="st"></span></div>`; }).join('')
-    + `<div class="strip clue"><span class="ch">STEG 6</span><div class="cluebox" id="clueBox">?</div><span class="led"></span><span class="name">Ledtråd</span><span class="st"></span></div>`;
+  const strip = (i,nm) => `<div class="strip"><span class="ch">STEG ${i+1}</span><div class="meter"><i></i></div><span class="led"></span><span class="name" title="${esc(nm)}">${esc(nm)}</span><span class="st"></span></div>`;
+  const filler = i => `<div class="strip full"><span class="ch">STEG ${i+1}</span><div class="cluebox">Allt</div><span class="led"></span><span class="name">Alla instrument</span><span class="st"></span></div>`;
+  let html = list.map((st,i)=>strip(i, st ? stageName(st) : '…')).join('');
+  for(let i=list.length;i<GUESSES-1;i++) html += filler(i);
+  $('desk').innerHTML = html + `<div class="strip clue"><span class="ch">STEG ${GUESSES}</span><div class="cluebox" id="clueBox">?</div><span class="led"></span><span class="name">Ledtråd</span><span class="st"></span></div>`;
   meters=[...$('desk').querySelectorAll('.meter i')]; }
 function render(){
   const s=song(), L=layers(), G=maxGuesses();
@@ -393,10 +398,11 @@ function render(){
   $('songMeta').textContent = `${CATALOG.length} låtar i spelet`;
   $('facts').innerHTML = `<div><span>Släppt</span><b>${s.y}</b></div>` +
     `<div><span>Streams på Spotify</span><b>${s.streams?fmtStreams(s.streams):'–'}</b></div>`;
-  const N = nStages(), clueOn = state.done || state.guesses.length>=GUESSES-1;
-  [...$('desk').children].forEach((el,i)=>{ const isClue=i===N;
-    const on = isClue ? clueOn : i<L, nx = !state.done && (isClue ? !clueOn && state.guesses.length===GUESSES-2 : i===L && i>=state.guesses.length);
-    el.className='strip '+(isClue?'clue ':'')+(on?'on':nx?'next':'off');
+  const N = nStages(), g = state.guesses.length, clueOn = state.done || g>=GUESSES-1;
+  // steg i (0-baserat) är upplåst när man gjort i gissningar
+  [...$('desk').children].forEach((el,i)=>{ const isClue=i===GUESSES-1, isFull=!isClue && i>=N;
+    const on = state.done || g>=i, nx = !state.done && g===i-1;
+    el.className='strip '+(isClue?'clue ':isFull?'full ':'')+(on?'on':nx?'next':'off');
     el.querySelector('.st').textContent = on?(isClue?'Visas':'På'):nx?'Nästa':'Låst'; });
   if($('clueBox')) $('clueBox').textContent = clueOn ? maskName(s.a) : '?';
   if(!$('play').disabled) $('layerInfo').textContent = stages.slice(0,L).map(stageName).join(' + ');
