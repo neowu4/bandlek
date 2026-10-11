@@ -197,7 +197,16 @@ function save(){ if(state.mode==='daily') store.set('bandlek:day:'+state.no,{id:
 const SF = n => `_${n}_FluidR3_GM_sf2_file`;
 const TONES = {bass:SF('tone_0330'), piano:SF('tone_0000'), guitar:SF('tone_0270'), other:SF('tone_0050'), vocals:SF('tone_0650')};
 const DRUMS = {k:[36,SF('drum_36_0'),.75], s:[38,SF('drum_38_0'),.6], h:[42,SF('drum_42_0'),.35], o:[46,SF('drum_46_0'),.35], c:[49,SF('drum_49_0'),.3]};
-const LEVEL = {bass:.7, piano:.5, guitar:.5, other:.42, vocals:.62};
+const LEVEL = {bass:.7, piano:.42, guitar:.42, other:.34, vocals:.66};
+const PAN = {drums:0, bass:0, piano:.3, guitar:-.35, other:.2, vocals:0};
+const SEND = {drums:.12, bass:0, piano:.28, guitar:.2, other:.32, vocals:.24};
+let impulse=null;
+function roomImpulse(){
+  if(impulse) return impulse;
+  const len=Math.floor(ctx.sampleRate*1.6); impulse=ctx.createBuffer(2,len,ctx.sampleRate);
+  for(let c=0;c<2;c++){ const d=impulse.getChannelData(c); for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3)*.5; }
+  return impulse;
+}
 let notes=null, stages=[], original=null, player=null, soundsReady=null;
 
 function loadScript(src){ return new Promise((ok,fail)=>{ const el=document.createElement('script'); el.src=src; el.onload=ok; el.onerror=()=>fail(new Error(src)); document.head.appendChild(el); }); }
@@ -238,9 +247,14 @@ async function play(n){
   if(ctx.state!=='running'){ try{ await ctx.resume(); }catch(e){} }  // Safari/Chrome: väck ljudet inom klicket
   const t0=ctx.currentTime+.1, master=ctx.createGain(); master.gain.value=window.MUTE?0:volGain(); // window.MUTE: tyst testläge
   const comp=ctx.createDynamicsCompressor(); master.connect(comp); comp.connect(ctx.destination);
-  const tr=stages.map((st,i)=>{ const g=ctx.createGain(); const an=ctx.createAnalyser(); an.fftSize=512; g.connect(an); an.connect(master);
+  // Gemensamt rum: lite efterklang limmar ihop lagren
+  const verb=ctx.createConvolver(); verb.buffer=roomImpulse(); const wet=ctx.createGain(); wet.gain.value=.9; verb.connect(wet); wet.connect(master);
+  const tr=stages.map((st,i)=>{ const sg=ctx.createGain(); const an=ctx.createAnalyser(); an.fftSize=512; sg.connect(an); an.connect(master);
     if(i<n) st.forEach(part=>{
       const ev=notes.tracks[part.t]||[];
+      // Varje instrument får en egen plats i stereobilden och en egen mängd rumsklang
+      const g=ctx.createGain(), pan=ctx.createStereoPanner(); pan.pan.value=PAN[part.t]||0; g.connect(pan); pan.connect(sg);
+      const send=ctx.createGain(); send.gain.value=SEND[part.t]||0; g.connect(send); send.connect(verb);
       if(part.t==='drums') ev.forEach(([t,k,v])=>{ const d=DRUMS[k]; if(d) player.queueWaveTable(ctx,g,window[d[1]],t0+t,d[0],k==='c'||k==='o'?1.2:.5,d[2]*(.45+.55*v)); });
       else ev.forEach(([t,len,m,v])=>{ if(part.lo&&m>=part.med||part.hi&&m<part.med) return;
         player.queueWaveTable(ctx,g,window[TONES[part.t]],t0+t,m,Math.max(.12,len+(part.t==='piano'||part.t==='guitar'?.15:0)),LEVEL[part.t]*(.5+.5*v)); });

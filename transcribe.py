@@ -136,6 +136,104 @@ def drums(path):
     return [[round(fr / fps, 3), k, round(min(1.0, v), 2)] for fr, k, v in hits]
 
 
+# ---------- Arrangemang: få lagren att spela ihop ----------
+RAW = ROOT / "cache" / "raw"
+MAJOR = np.array([6.35, 2.23, 3.48, 2.33, 4.38, 4.09, 2.52, 5.19, 2.39, 3.66, 2.29, 2.88])
+MINOR = np.array([6.33, 2.68, 3.52, 5.38, 2.60, 3.53, 2.54, 4.75, 3.98, 2.69, 3.34, 3.17])
+POLY_MAX = 3
+
+
+def beat_grid(d, dur):
+    """Sextondelsgrid från trummor + bas, så att alla lager hamnar på samma slag."""
+    y = None
+    for name in ("drums", "bass"):
+        w = d / f"{name}.wav"
+        if w.exists():
+            a, sr = librosa.load(str(w), sr=22050, mono=True)
+            y = a if y is None else y[:len(a)] + a[:len(y)]
+    if y is None:
+        return None
+    _, beats = librosa.beat.beat_track(y=y, sr=sr, units="time", tightness=120)
+    if len(beats) < 8:
+        return None
+    ibi = float(np.median(np.diff(beats)))
+    pre = np.arange(beats[0] - ibi, -ibi, -ibi)[::-1]
+    post = np.arange(beats[-1] + ibi, dur + ibi, ibi)
+    b = np.concatenate([pre, beats, post])
+    grid = np.concatenate([b[i] + (b[i + 1] - b[i]) * np.arange(4) / 4 for i in range(len(b) - 1)])
+    return grid[(grid >= -0.01) & (grid <= dur + 0.01)]
+
+
+def snap(t, grid):
+    return float(grid[np.abs(grid - t).argmin()]) if grid is not None else t
+
+
+def find_key(tracks):
+    pcp = np.zeros(12)
+    for name in ("bass", "vocals", "piano", "guitar", "other"):
+        for st, ln, m, a in tracks.get(name, []):
+            pcp[m % 12] += ln * a * (2 if name in ("bass", "vocals") else 1)
+    if pcp.sum() == 0:
+        return None
+    best = max(((np.corrcoef(pcp, np.roll(prof, k))[0, 1], k, mode)
+                for k in range(12) for mode, prof in (("dur", MAJOR), ("moll", MINOR))), key=lambda x: x[0])
+    r, tonic, mode = best
+    if r < 0.6:
+        return None  # osäker tonart (t.ex. blues): rör inte tonerna
+    steps = [0, 2, 4, 5, 7, 9, 11] if mode == "dur" else [0, 2, 3, 5, 7, 8, 10, 11]
+    return {(tonic + x) % 12 for x in steps}
+
+
+def to_scale(m, scale):
+    if scale is None or m % 12 in scale:
+        return m
+    for dlt in (-1, 1, -2, 2):
+        if (m + dlt) % 12 in scale:
+            return m + dlt
+    return m
+
+
+def arrange(raw, d):
+    tracks, dur = raw["tracks"], raw["dur"]
+    grid = beat_grid(d, dur)
+    scale = find_key(tracks)
+    step = float(np.median(np.diff(grid))) if grid is not None else 0.1
+    out = {}
+    for name, ev in tracks.items():
+        if name == "drums":
+            seen, hits = set(), []
+            for t, k, v in ev:
+                t = round(snap(t, grid), 3)
+                if (t, k) not in seen:
+                    seen.add((t, k)); hits.append([t, k, v])
+            out[name] = sorted(hits)
+            continue
+        notes = []
+        for st, ln, m, a in ev:
+            if scale and m % 12 not in scale and name in ("piano", "guitar", "other") and a < 0.6:
+                continue  # svag ton utanför tonarten: oftast ett omvandlingsfel
+            m = to_scale(m, scale)
+            if name in ("piano", "guitar", "other") and m > 84:
+                continue  # för gällt, krockar med melodin
+            s0 = snap(st, grid)
+            e0 = max(snap(st + ln, grid), s0 + step)
+            notes.append([s0, e0, m, a])
+        # samma ton på samma plats efter kvantisering: behåll en
+        uniq = {}
+        for n in notes:
+            key = (round(n[0], 3), n[2])
+            if key not in uniq or n[3] > uniq[key][3]:
+                uniq[key] = n
+        notes = list(uniq.values())
+        if name in ("bass", "vocals"):
+            notes = monophonic(notes)
+        else:
+            notes = cap_polyphony(notes, POLY_MAX)
+        notes.sort(key=lambda n: n[0])
+        out[name] = [[round(s, 3), round(e - s, 3), m, round(a, 2)] for s, e, m, a in notes if e > s]
+    return {"dur": dur, "tracks": out}
+
+
 def itunes_preview(artist, title):
     q = urllib.parse.urlencode({"term": f"{artist} {title}", "entity": "song", "limit": 10, "country": "se"})
     for attempt in range(4):
@@ -151,7 +249,20 @@ def itunes_preview(artist, title):
     return None
 
 
+def rearrange():
+    """Kör bara arrangemanget igen från de sparade råa noterna (snabbt)."""
+    for raw_path in sorted(RAW.glob("*.json")):
+        sid = raw_path.stem
+        d = SEP / sid
+        if not d.exists():
+            continue
+        (NOTES / f"{sid}.json").write_text(json.dumps(arrange(json.loads(raw_path.read_text()), d), separators=(",", ":")))
+        print(f"♪ {sid}")
+
+
 def main():
+    if "--arrange" in sys.argv:
+        return rearrange()
     force = "--force" in sys.argv
     cat_path = ROOT / "public" / "catalog.json"
     catalog = json.loads(cat_path.read_text())
@@ -174,7 +285,10 @@ def main():
                 tracks[name] = ev
             print(f"   {name}: {len(ev)} {'slag' if name == 'drums' else 'noter'}")
         dur = round(float(librosa.get_duration(path=str(d / 'vocals.wav'))), 2)
-        out.write_text(json.dumps({"dur": dur, "tracks": tracks}, separators=(",", ":")))
+        raw = {"dur": dur, "tracks": tracks}
+        RAW.mkdir(parents=True, exist_ok=True)
+        (RAW / f"{s['id']}.json").write_text(json.dumps(raw, separators=(",", ":")))
+        out.write_text(json.dumps(arrange(raw, d), separators=(",", ":")))
         s["tracks"] = list(tracks)
         if not s.get("p"):
             s["p"] = itunes_preview(s["a"], s["t"])

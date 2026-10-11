@@ -41,7 +41,7 @@ def itunes(artist, title):
     else:
         return None
     res = [x for x in res if x.get("previewUrl")]
-    bad = re.compile(r"remix|remake|re-recorded|instrumental|live|karaoke|acoustic|cover|long-lost|mix\)|demo|remaster.*\d{4}.*version", re.I)
+    bad = re.compile(r"remix|remake|re-recorded|taylor's version|instrumental|\blive\b|karaoke|acoustic|\bcover\b|long-lost|mix\)|\bdemo\b|remaster.*\d{4}.*version", re.I)
 
     def score(x):
         s = 0

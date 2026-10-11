@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 UA = "Bandlek/1.0 (https://github.com/neowu4/bandlek)"
-SKIP = re.compile(r"remix|live|instrumental|acoustic|karaoke|demo|cover|sped up|slowed", re.I)
+SKIP = re.compile(r"remix|\blive\b|instrumental|acoustic|karaoke|\bdemo\b|\bcover\b|sped up|slowed|taylor's version", re.I)
 
 
 def get(url, as_json=True):
