@@ -24,9 +24,9 @@ ORDER = ["drums", "bass", "piano", "guitar", "other", "vocals"]
 MELODIC = {
     "bass":   dict(lo=30, hi=420, mono=True, amp=0.22, minlen=90),
     "vocals": dict(lo=80, hi=1100, mono=True, amp=0.25, minlen=90),
-    "piano":  dict(lo=55, hi=2500, mono=False, amp=0.30, minlen=70),
-    "guitar": dict(lo=70, hi=2000, mono=False, amp=0.30, minlen=70),
-    "other":  dict(lo=55, hi=3000, mono=False, amp=0.30, minlen=90),
+    "piano":  dict(lo=55, hi=2500, mono=False, amp=0.38, minlen=80),
+    "guitar": dict(lo=70, hi=2000, mono=False, amp=0.36, minlen=80),
+    "other":  dict(lo=55, hi=3000, mono=False, amp=0.38, minlen=90),
 }
 MIN_NOTES = 6
 
@@ -46,12 +46,45 @@ def monophonic(notes):
     return out
 
 
+def merge_fragments(notes, gap):
+    """En utdragen ton som Basic Pitch hackat upp i bitar blir en ton igen."""
+    out = []
+    for n in sorted(notes, key=lambda n: (n[2], n[0])):
+        if out and out[-1][2] == n[2] and n[0] - out[-1][1] < gap:
+            out[-1][1] = max(out[-1][1], n[1]); out[-1][3] = max(out[-1][3], n[3])
+        else:
+            out.append(list(n))
+    return out
+
+
+def legato(notes, gap):
+    """Fyll små luckor i en melodi så att fraserna hänger ihop."""
+    notes = sorted(notes, key=lambda n: n[0])
+    for a, b in zip(notes, notes[1:]):
+        if 0 < b[0] - a[1] < gap:
+            a[1] = b[0]
+    return notes
+
+
+def cap_polyphony(notes, k):
+    """Högst k toner samtidigt; de svagaste tonerna (oftast spöktoner) stryks."""
+    keep = []
+    for n in sorted(notes, key=lambda n: -n[3]):
+        if sum(1 for m in keep if m[0] < n[1] and n[0] < m[1]) < k:
+            keep.append(n)
+    return keep
+
+
 def melodic(path, cfg):
     _, _, ev = predict(str(path), ICASSP_2022_MODEL_PATH, onset_threshold=0.5, frame_threshold=0.3,
                        minimum_note_length=cfg["minlen"], minimum_frequency=cfg["lo"], maximum_frequency=cfg["hi"])
     notes = [[float(s), float(e), int(p), float(a)] for s, e, p, a, *_ in ev if a >= cfg["amp"]]
+    if not cfg["mono"]:
+        notes = merge_fragments(notes, 0.03)  # i sång är tätt följande toner egna stavelser
     if cfg["mono"]:
-        notes = monophonic(notes)
+        notes = legato(monophonic(notes), 0.14)
+    else:
+        notes = cap_polyphony(notes, 4)
     notes.sort(key=lambda n: n[0])
     # [start, längd, midi, styrka 0-1]
     return [[round(s, 3), round(e - s, 3), p, round(min(1.0, a), 2)] for s, e, p, a in notes]

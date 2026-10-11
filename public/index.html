@@ -190,9 +190,9 @@ function save(){ if(state.mode==='daily') store.set('bandlek:day:'+state.no,{gue
 
 // ---------- Ljud: låten spelas om med riktiga instrumentljud (FluidR3-soundfont via WebAudioFont) ----------
 const SF = n => `_${n}_FluidR3_GM_sf2_file`;
-const TONES = {bass:SF('tone_0330'), piano:SF('tone_0000'), guitar:SF('tone_0270'), other:SF('tone_0480'), vocals:SF('tone_0540')};
+const TONES = {bass:SF('tone_0330'), piano:SF('tone_0000'), guitar:SF('tone_0270'), other:SF('tone_0050'), vocals:SF('tone_0650')};
 const DRUMS = {k:[36,SF('drum_36_0'),.75], s:[38,SF('drum_38_0'),.6], h:[42,SF('drum_42_0'),.35], o:[46,SF('drum_46_0'),.35], c:[49,SF('drum_49_0'),.3]};
-const LEVEL = {bass:.75, piano:.38, guitar:.42, other:.22, vocals:.5};
+const LEVEL = {bass:.7, piano:.5, guitar:.5, other:.42, vocals:.62};
 let notes=null, stages=[], original=null, player=null, soundsReady=null;
 
 function loadScript(src){ return new Promise((ok,fail)=>{ const el=document.createElement('script'); el.src=src; el.onload=ok; el.onerror=()=>fail(new Error(src)); document.head.appendChild(el); }); }
