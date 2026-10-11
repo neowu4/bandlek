@@ -182,11 +182,16 @@ const STAGES = 5;                       // steg 1-5: ett nytt instrument per ste
 const maxGuesses = () => STAGES + 1;    // steg 6: allt + ledtråd
 const layers = () => state.done ? STAGES : Math.min(STAGES, state.guesses.length+1);
 
-function newDaily(){ const n=dayNo(); const saved=store.get('bandlek:day:'+n,null);
-  state={mode:'daily', no:n, song:ORDER[(n-1)%CATALOG.length], guesses:[], done:false, won:false, ...(saved||{})}; }
+// Dagens låt sparas med sitt id, så att den inte byts ut under dagen om nya låtar läggs till.
+function newDaily(){ const n=dayNo(); const saved=store.get('bandlek:day:'+n,null)||{};
+  let idx = saved.id ? CATALOG.findIndex(s=>s.id===saved.id) : -1;
+  if(idx<0) idx = ORDER[(n-1)%ORDER.length];
+  state={mode:'daily', no:n, song:idx, guesses:[], done:false, won:false};
+  if(saved.id===CATALOG[idx].id) Object.assign(state,{guesses:saved.guesses||[],done:!!saved.done,won:!!saved.won});
+  save(); }
 function newFree(){ let i; do{ i=Math.floor(Math.random()*CATALOG.length); }while(state && i===state.song && CATALOG.length>1);
   state={mode:'free', no:null, song:i, guesses:[], done:false, won:false}; }
-function save(){ if(state.mode==='daily') store.set('bandlek:day:'+state.no,{guesses:state.guesses,done:state.done,won:state.won}); }
+function save(){ if(state.mode==='daily') store.set('bandlek:day:'+state.no,{id:song().id,guesses:state.guesses,done:state.done,won:state.won}); }
 
 // ---------- Ljud: låten spelas om med riktiga instrumentljud (FluidR3-soundfont via WebAudioFont) ----------
 const SF = n => `_${n}_FluidR3_GM_sf2_file`;
@@ -225,7 +230,7 @@ async function loadSong(){
   const tok=++loadToken, s=song(); notes=null; $('play').disabled=true; $('layerInfo').textContent='Laddar instrument…';
   const [n] = await Promise.all([fetch(`notes/${s.id}.json`).then(r=>r.json()), loadSounds()]);
   if(tok!==loadToken) return;
-  notes=n; stages=buildStages(n); buildDesk(); $('play').disabled=false; render();
+  notes=n; stages=buildStages(n); buildDesk(); $('play').disabled=false; showIdle(); render();
 }
 
 async function play(n){
@@ -271,18 +276,27 @@ $('muteBtn').onclick=()=>{ if(vol.v===0){ vol.v=60; vol.muted=false; } else vol.
 applyVol();
 
 const PLAY='<path d="M7 4.5v15l13-7.5z"/>', STOP='<path d="M6 6h12v12H6z"/>';
-function setPlaying(p){ $('playIcon').innerHTML=p?STOP:PLAY; $('play').setAttribute('aria-label',p?'Stoppa':'Spela'); if(!p) $('fill').style.transform='scaleX(0)'; }
+function setPlaying(p){ $('playIcon').innerHTML=p?STOP:PLAY; $('play').setAttribute('aria-label',p?'Stoppa':'Spela'); if(!p) showIdle(); }
 const fmt = s => { s=Math.max(0,Math.round(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); };
 
+const showIdle = () => { $('time').textContent = `0:00 / ${notes?fmt(notes.dur):'0:00'}`; $('fill').style.transform='scaleX(0)'; };
+// Timer, förloppsindikator och nedräkning: egen timer, oberoende av animationerna.
+function tick(){
+  try{
+    if(session){ const el=Math.max(0,ctx.currentTime-session.t0), p=Math.min(1,el/session.dur);
+      $('fill').style.transform=`scaleX(${p})`; $('time').textContent=`${fmt(Math.min(el,session.dur))} / ${fmt(session.dur)}`;
+      if(el>session.dur+.3) stop();
+    }
+    const cd=$('countdown'); if(cd){ const now=new Date(), mid=new Date(now); mid.setHours(24,0,0,0); const s=Math.floor((mid-now)/1000);
+      cd.textContent=`Nästa låt om ${Math.floor(s/3600)} h ${String(Math.floor(s/60)%60).padStart(2,'0')} min`; }
+  }catch(e){ console.error(e); }
+}
+// Nivåmätarna
 function frame(){
-  if(session){ const el=ctx.currentTime-session.t0, p=Math.min(1,Math.max(0,el/session.dur));
-    $('fill').style.transform=`scaleX(${p})`; $('time').textContent=`${fmt(el)} / ${fmt(session.dur)}`;
-    session.tr.forEach((t,i)=>{ if(!meters[i]) return; t.an.getFloatTimeDomainData(session.buf); let q=0; for(const v of session.buf) q+=v*v;
+  try{
+    if(session) session.tr.forEach((t,i)=>{ if(!meters[i]) return; t.an.getFloatTimeDomainData(session.buf); let q=0; for(const v of session.buf) q+=v*v;
       meters[i].style.transform=`scaleY(${Math.min(1,Math.sqrt(q/512)*4).toFixed(3)})`; });
-    if(el>session.dur+.3) stop();
-  }
-  const cd=$('countdown'); if(cd){ const now=new Date(), mid=new Date(now); mid.setHours(24,0,0,0); const s=Math.floor((mid-now)/1000);
-    cd.textContent=`Nästa låt om ${Math.floor(s/3600)} h ${String(Math.floor(s/60)%60).padStart(2,'0')} min`; }
+  }catch(e){ console.error(e); }
   requestAnimationFrame(frame);
 }
 
@@ -378,7 +392,7 @@ $('mDaily').onclick=()=>{ stop(); stopOriginal(); newDaily(); start(); };
 $('mFree').onclick=()=>{ stop(); stopOriginal(); newFree(); start(); };
 
 function start(){ stages=[]; buildDesk(); render(); loadSong().catch(err=>{ $('layerInfo').textContent='Kunde inte ladda ljudet: '+err.message; }); }
-fetch('catalog.json').then(r=>r.json()).then(c=>{ CATALOG=c.filter(s=>s.tracks&&['drums','bass','vocals'].every(t=>s.tracks.includes(t))); ORDER=shuffled(c.length); newDaily(); start(); requestAnimationFrame(frame); })
+fetch('catalog.json').then(r=>r.json()).then(c=>{ CATALOG=c.filter(s=>s.tracks&&['drums','bass','vocals'].every(t=>s.tracks.includes(t))); ORDER=shuffled(CATALOG.length); newDaily(); start(); requestAnimationFrame(frame); setInterval(tick,100); })
   .catch(()=>{ $('puzzleNo').textContent='Hittar ingen catalog.json – kör build.py först'; });
 </script>
 </body>
