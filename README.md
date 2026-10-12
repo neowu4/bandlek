@@ -27,10 +27,12 @@ python3.11 -m venv .venv-bp
 
 ## Lägga till låtar
 
-Skriv `Artist - Titel` på en ny rad i `songs.txt` och kör `.venv/bin/python build.py` och sedan `.venv-bp/bin/python transcribe.py`. Låtar som redan är klara hoppas över, och `--force` gör om allt.
+Skriv `Artist - Titel | kategorier` på en ny rad i `songs.txt` och kör `.venv/bin/python build.py` och sedan `.venv-bp/bin/python transcribe.py`. Låtar som redan är klara hoppas över, och `--force` gör om allt.
 
 ## Filer
 
 - `build.py` söker på iTunes, laddar ner klippen, kör Demucs och skriver `public/catalog.json` och `public/stems/`
 - `transcribe.py` gör om stems till noter och slag
+- `stats.py` hämtar Spotify-streams (kworb.net)
+- `schedule.py` låser dagens låt per dag i `public/daily.json` (kör efter nya låtar)
 - `public/index.html` innehåller hela spelet: dagens låt, träningsläge, statistik och resultat att dela

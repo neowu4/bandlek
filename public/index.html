@@ -36,6 +36,9 @@ header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-be
 .cats button small{color:var(--muted);font-family:var(--mono);font-size:11px;margin-left:4px}
 .cats button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .cats button[aria-pressed="true"] small{color:inherit;opacity:.8}
+.days button .mk{margin-left:6px;font-family:var(--mono);font-size:11px}
+.days button.won .mk{color:var(--ok)} .days button.lost .mk{color:var(--bad)}
+.days button[aria-pressed="true"] .mk{color:inherit}
 .cats .sep{width:1px;background:var(--line);margin:2px 4px}
 @media (max-width:520px){.cats{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;margin-inline:-16px;padding-inline:16px}}
 .meta{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
@@ -151,11 +154,13 @@ footer{font-size:12px;color:var(--muted)}
     </div>
     <div class="modes" role="group" aria-label="Spelläge">
       <button id="mDaily" aria-pressed="true">Dagens låt</button>
+      <button id="mPast" aria-pressed="false">Senaste 7 dagarna</button>
       <button id="mFree" aria-pressed="false">Träning</button>
     </div>
   </header>
 
   <nav class="cats" id="cats" aria-label="Kategori"></nav>
+  <nav class="cats days" id="days" aria-label="Tidigare dagar" hidden></nav>
   <div class="meta"><span id="puzzleNo">Laddar…</span><span id="songMeta"></span></div>
   <section class="facts" id="facts" aria-label="Om låten"></section>
   <ol class="steps" id="steps" aria-label="Steg"></ol>
@@ -216,9 +221,12 @@ const maxGuesses = () => GUESSES;
 const layers = () => state.done ? nStages() : Math.min(nStages(), state.guesses.length+1);
 
 // Dagens låt sparas med sitt id, så att den inte byts ut under dagen om nya låtar läggs till.
-function newDaily(){ const n=dayNo(); const saved=store.get('bandlek:day:'+n,null)||{};
+// Dagens låt kommer från ett fast schema (daily.json), så att tidigare dagar aldrig byter låt
+let SCHED=[], showDays=false;
+function dailyIndex(n){ const i = SCHED[n-1] ? CATALOG.findIndex(s=>s.id===SCHED[n-1]) : -1; return i>=0 ? i : ORDER[(n-1)%ORDER.length]; }
+function newDaily(n=dayNo()){ const saved=store.get('bandlek:day:'+n,null)||{};
   let idx = saved.id ? CATALOG.findIndex(s=>s.id===saved.id) : -1;
-  if(idx<0) idx = ORDER[(n-1)%ORDER.length];
+  if(idx<0) idx = dailyIndex(n);
   state={mode:'daily', no:n, song:idx, guesses:[], done:false, won:false};
   if(saved.id===CATALOG[idx].id) Object.assign(state,{guesses:saved.guesses||[],done:!!saved.done,won:!!saved.won});
   save(); }
@@ -413,7 +421,7 @@ function frame(){
 // ---------- Spel ----------
 function finish(won){
   state.done=true; state.won=won; save();
-  if(state.mode==='daily'){ const st=store.get('bandlek:stats',{played:0,wins:0,streak:0,best:0});
+  if(state.mode==='daily' && state.no===dayNo()){ const st=store.get('bandlek:stats',{played:0,wins:0,streak:0,best:0});
     if(st.lastDay!==state.no){ st.played++; st.lastDay=state.no;
       if(won){ st.wins++; st.streak = st.lastWin===state.no-1 ? st.streak+1 : 1; st.lastWin=state.no; st.best=Math.max(st.best,st.streak); } else st.streak=0;
       store.set('bandlek:stats',st); } }
@@ -444,8 +452,10 @@ function difficulty(s){ const v=s.streams||0;
   return v>=1.5e9 ? ['Lätt',2] : v>=4e8 ? ['Medel',3] : v>=8e7 ? ['Svår',4] : ['Mycket svår',5]; }
 function render(){
   const s=song(), L=layers(), G=maxGuesses();
-  $('mDaily').setAttribute('aria-pressed', state.mode==='daily'); $('mFree').setAttribute('aria-pressed', state.mode==='free');
-  $('puzzleNo').textContent = state.mode==='daily' ? `Dagens låt · Nr ${state.no}` : `Träning · ${catDef().name} · ${CATALOG.filter(catDef().f).length} låtar`;
+  const past = state.mode==='daily' && state.no!==dayNo();
+  $('mDaily').setAttribute('aria-pressed', state.mode==='daily' && !past && !showDays); $('mPast').setAttribute('aria-pressed', showDays || past); $('mFree').setAttribute('aria-pressed', state.mode==='free');
+  $('puzzleNo').textContent = state.mode==='daily' ? (past ? `Nr ${state.no} · ${dayLabel(state.no)}` : `Dagens låt · Nr ${state.no}`) : `Träning · ${catDef().name} · ${CATALOG.filter(catDef().f).length} låtar`;
+  $('cats').hidden = showDays; $('days').hidden = !showDays; if(showDays) renderDays();
   $('cats').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', String(state.mode==='free' && b.dataset.cat===cat)));
   $('songMeta').textContent = `${CATALOG.length} låtar i spelet`;
   const [dl,par]=difficulty(s);
@@ -508,11 +518,21 @@ function seek(d){ if(!session||!ctx) return; const cur=ctx.currentTime-session.t
 $('back5').onclick=()=>seek(-5);
 $('fwd5').onclick=()=>seek(5);
 $('loopBtn').onclick=()=>{ loopOn=!loopOn; $('loopBtn').setAttribute('aria-pressed', String(loopOn)); };
-$('mDaily').onclick=()=>{ stop(); stopOriginal(); newDaily(); start(); };
-$('mFree').onclick=()=>{ stop(); stopOriginal(); newFree(); start(); };
+// Senaste 7 dagarna, som i Bandle
+const dayDate = n => { const d=new Date(Date.UTC(2026,9,1)+(n-1)*864e5); return d; };
+const dayLabel = n => dayDate(n).toLocaleDateString('sv-SE',{weekday:'short', day:'numeric', month:'short', timeZone:'UTC'});
+function renderDays(){ const today=dayNo();
+  $('days').innerHTML = Array.from({length:7},(_,k)=>today-1-k).filter(n=>n>=1).map(n=>{ const st=store.get('bandlek:day:'+n,null);
+    const cls = st&&st.done ? (st.won?'won':'lost') : '', mk = st&&st.done ? (st.won?'✓ '+st.guesses.length+'/6':'✗') : st&&st.guesses&&st.guesses.length ? '…' : '';
+    return `<button type="button" class="${cls}" data-day="${n}" aria-pressed="${state.mode==='daily'&&state.no===n}">${dayLabel(n)}<span class="mk">${mk}</span></button>`; }).join('');
+  $('days').querySelectorAll('button').forEach(b=>b.onclick=()=>{ stop(); stopOriginal(); newDaily(+b.dataset.day); start(); });
+}
+$('mPast').onclick=()=>{ showDays=true; render(); };
+$('mDaily').onclick=()=>{ showDays=false; stop(); stopOriginal(); newDaily(); start(); };
+$('mFree').onclick=()=>{ showDays=false; stop(); stopOriginal(); newFree(); start(); };
 
 function start(){ stages=[]; buildDesk(); render(); loadSong().catch(err=>{ $('layerInfo').textContent='Kunde inte ladda ljudet: '+err.message; }); }
-fetch('catalog.json').then(r=>r.json()).then(c=>{ CATALOG=c.filter(s=>s.tracks&&['drums','bass','vocals'].every(t=>s.tracks.includes(t))); ORDER=shuffled(CATALOG.length); buildCats(); newDaily(); start(); requestAnimationFrame(frame); setInterval(tick,100); })
+Promise.all([fetch('catalog.json').then(r=>r.json()), fetch('daily.json').then(r=>r.json()).catch(()=>({ids:[]}))]).then(([c,d])=>{ SCHED=d.ids||[]; CATALOG=c.filter(s=>s.tracks&&['drums','bass','vocals'].every(t=>s.tracks.includes(t))); ORDER=shuffled(CATALOG.length); buildCats(); newDaily(); start(); requestAnimationFrame(frame); setInterval(tick,100); })
   .catch(()=>{ $('puzzleNo').textContent='Hittar ingen catalog.json – kör build.py först'; });
 </script>
 </body>
