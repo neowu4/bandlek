@@ -6330,5 +6330,1057 @@
   "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/cb/fd/c1/cbfdc122-65ad-3def-ae5e-55c21c2aeb07/mzaf_16890660781457988723.plus.aac.p.m4a",
   "streams": 1354571911,
   "sp": "0v1XpBHnsbkCn7iJ9Ucr1l"
+ },
+ {
+  "id": "robyn-be-mine",
+  "t": "Be Mine!",
+  "a": "Robyn",
+  "y": 2005,
+  "al": "Robyn",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3b/26/83/3b268339-b43f-22db-335b-539939fea8aa/4250330531903_3000.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/dc/29/73/dc297300-3caf-1195-ff71-14cc60f510fe/mzaf_18258588861588484823.plus.aac.p.m4a",
+  "streams": 29336199,
+  "sp": "0ugOBAIRdG3Mto4SSxGr5r"
+ },
+ {
+  "id": "avicii-lonely-together",
+  "t": "Lonely Together",
+  "a": "Avicii",
+  "y": 2017,
+  "al": "AVĪCI (01) - EP",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/97/ec/23/97ec23c0-cb32-5da3-b8ec-b04b2c2c3333/17UM1IM17510.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "dans"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/65/c6/2a/65c62a9e-3c98-7d84-0ee5-027370bf9e01/mzaf_2262530577054038075.plus.aac.p.m4a",
+  "streams": 800426771,
+  "sp": "2OALaHcDdKkjYEpAr0Qzab"
+ },
+ {
+  "id": "icona-pop-all-night",
+  "t": "All Night",
+  "a": "Icona Pop",
+  "y": 2013,
+  "al": "This Is... Icona Pop",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d5/96/6f/d5966f7f-8bfa-d64d-2526-cbc527c8dfc4/0602537610891.png/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop",
+   "dans"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3c/98/65/3c98657c-5862-488b-2cb9-f793d494c3cb/mzaf_15776347835393581853.plus.aac.p.m4a",
+  "streams": 186226293,
+  "sp": "1chYuh9E5NYyXZDFD2x2fV"
+ },
+ {
+  "id": "agnes-on-and-on",
+  "t": "On and On",
+  "a": "Agnes",
+  "y": 2008,
+  "al": "Dance Love Pop (The Love Love Love Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/07/e6/12/07e61259-a0c5-ef40-ec1d-ebc1b5473573/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop",
+   "dans"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cc/a7/ac/cca7ac07-4cf7-a513-a174-d42b054bdad2/mzaf_12242376199460183866.plus.aac.p.m4a",
+  "streams": 13624689,
+  "sp": "3Og0lFXOP4Uugc9rfbMfhl"
+ },
+ {
+  "id": "eric-saade-manboy",
+  "t": "Manboy",
+  "a": "Eric Saade",
+  "y": 2010,
+  "al": "Masquerade",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/99/15/15/991515ab-4b2b-af51-f6ba-ff73551a2ea3/cover.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop",
+   "mello"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f1/76/23/f17623cc-a93c-871d-f219-935cfe2ff2d5/mzaf_12171817404402107327.plus.aac.p.m4a",
+  "streams": 28268542,
+  "sp": "4ut7uc5pTPixey8zomS5Ah"
+ },
+ {
+  "id": "the-cardigans-carnival",
+  "t": "Carnival",
+  "a": "The Cardigans",
+  "y": 1995,
+  "al": "Best of the Cardigans",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cb/2f/6f/cb2f6fcf-bcc6-175a-3f50-09c5a5834f55/07UMGIM18898.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/80/ea/03/80ea03eb-8382-8b1f-34f9-8dd5a895718a/mzaf_17080980841248046200.plus.aac.p.m4a",
+  "streams": 63995220,
+  "sp": "5TbDM1PBTyODDCTGEoDCxL"
+ },
+ {
+  "id": "roxette-spending-my-time",
+  "t": "Spending My Time",
+  "a": "Roxette",
+  "y": 1991,
+  "al": "A Collection of Roxette Hits! - Their 20 Greatest Songs!",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/f3/bb/c5/f3bbc53d-cd67-efd3-b081-0ffbfd2350dc/dj.fpigpivp.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f8/cb/cc/f8cbcc30-b683-570d-704a-f9439066cc2b/mzaf_14079946746901303655.plus.aac.p.m4a",
+  "streams": 295279477,
+  "sp": "6ZcNZYOqWfS2dYw7hLeQXK"
+ },
+ {
+  "id": "abba-money-money-money",
+  "t": "Money, Money, Money",
+  "a": "ABBA",
+  "y": 1976,
+  "al": "ABBA Gold: Greatest Hits",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/60/f8/a6/60f8a6bc-e875-238d-f2f8-f34a6034e6d2/14UMGIM07615.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/96/c9/1b/96c91be7-2499-c06e-1efe-b3bef502b42d/mzaf_4399555653417193468.plus.aac.p.m4a",
+  "streams": 398897647,
+  "sp": "3lKN03PDeBnXZS7sDukRBt"
+ },
+ {
+  "id": "abba-knowing-me-knowing-you",
+  "t": "Knowing Me, Knowing You",
+  "a": "ABBA",
+  "y": 1977,
+  "al": "Arrival (Bonus Track Version)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/69/4d/b4/694db440-1fdd-0112-16a0-ae501501cb32/14UMGIM07610.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ad/79/21/ad79211e-325e-1c8c-042c-ea7bd8a44af5/mzaf_7294446239486323844.plus.aac.p.m4a",
+  "streams": 250313270,
+  "sp": "798cuJeotvXP8UVa8GJPnD"
+ },
+ {
+  "id": "kent-ingenting",
+  "t": "Ingenting",
+  "a": "Kent",
+  "y": 2007,
+  "al": "Tillbaka till samtiden",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Features/23/87/3e/dj.eelqpufb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "rock"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/64/8c/03/648c03ab-66e0-f9f8-0c3c-bdd1f67992fe/mzaf_3204576901913065039.plus.aac.p.m4a",
+  "streams": 16720652,
+  "sp": "1KJe9UbBelM1Jz0uZRPlhi"
+ },
+ {
+  "id": "laleh-colors",
+  "t": "Colors",
+  "a": "Laleh",
+  "y": 2013,
+  "al": "Colors",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/79/a7/db/79a7dbab-3f09-b47b-29ad-81ceae90f39c/825646396603.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/85/da/1c/85da1c88-6ed9-f638-98a1-5bec2d1cf9c1/mzaf_3927258090925064500.plus.aac.p.m4a",
+  "streams": 21728690,
+  "sp": "0I0flDWPoUqDmCIX90X2I8"
+ },
+ {
+  "id": "panetoz-dansa-pausa",
+  "t": "Dansa Pausa",
+  "a": "Panetoz",
+  "y": 2012,
+  "al": "Dansa pausa - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Features6/v4/b4/66/91/b466910b-c952-3707-590b-5aeafb88cb23/dj.bjawgkxd.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "sv",
+   "pop",
+   "dans"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bd/89/7a/bd897adc-132f-a7f9-f62c-f30aad4a11a8/mzaf_15269000382527415069.plus.aac.p.m4a",
+  "streams": 73264293,
+  "sp": "2gNAGt7gUiMkagkhIiDLPm"
+ },
+ {
+  "id": "michael-jackson-don-t-stop-til-you-get-enough",
+  "t": "Don't Stop 'Til You Get Enough",
+  "a": "Michael Jackson",
+  "y": 1979,
+  "al": "Off the Wall",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0c/fe/a3/0cfea324-57c1-d530-5248-9bb591bbd7bf/074643574525.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop",
+   "disco"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/02/8b/f4/028bf436-7279-0dd0-4b10-adbf2275ab80/mzaf_7743925534490811276.plus.aac.p.m4a",
+  "streams": 1036522216,
+  "sp": "1883SZ1i4AIgtCFQ1KaK8t"
+ },
+ {
+  "id": "madonna-vogue",
+  "t": "Vogue",
+  "a": "Madonna",
+  "y": 1990,
+  "al": "The Immaculate Collection",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/32/fd/6e/32fd6e25-da2b-10e9-df38-2923c01b6c9b/dj.jaxugjvp.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop",
+   "dans"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/35/ab/23/35ab2302-3f06-a322-e306-e86ecf6e6999/mzaf_7353725739896737621.plus.aac.p.m4a",
+  "streams": 387428158,
+  "sp": "27QvYgBk0CHOVHthWnkuWt"
+ },
+ {
+  "id": "whitney-houston-how-will-i-know",
+  "t": "How Will I Know",
+  "a": "Whitney Houston",
+  "y": 1985,
+  "al": "Whitney Houston",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d4/e7/4b/d4e74b10-3476-3471-4b74-60a05103f876/196872754551.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8e/6c/48/8e6c48e2-794e-06eb-b489-922eba4f7380/mzaf_6755939596977716059.plus.aac.p.m4a",
+  "streams": 464459832,
+  "sp": "5tdKaKLnC4SgtDZ6RlWeal"
+ },
+ {
+  "id": "the-weeknd-starboy",
+  "t": "Starboy",
+  "a": "The Weeknd",
+  "y": 2016,
+  "al": "Starboy",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b5/92/bb/b592bb72-52e3-e756-9b26-9f56d08f47ab/16UMGIM67864.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop",
+   "rnb"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/11/71/d6/1171d6ad-3c96-e027-2af6-58028426588c/mzaf_15137631797407745471.plus.aac.p.m4a",
+  "streams": 4805265194,
+  "sp": "7MXVkk9YMctZqd1Srtv4MB"
+ },
+ {
+  "id": "dua-lipa-new-rules",
+  "t": "New Rules",
+  "a": "Dua Lipa",
+  "y": 2017,
+  "al": "Dua Lipa (Deluxe)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c1/54/2d/c1542d45-c6c2-12ca-7308-6eacd762c562/190295807870.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6e/19/d9/6e19d9ca-1321-1eea-e797-51d7ab5b56c2/mzaf_5898999508314966855.plus.aac.p.m4a",
+  "streams": 2648309216,
+  "sp": "2xJCMIJfcNYDc5iR0sAm2O"
+ },
+ {
+  "id": "adele-set-fire-to-the-rain",
+  "t": "Set Fire to the Rain",
+  "a": "Adele",
+  "y": 2011,
+  "al": "21",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f8/df/0a/f8df0ac9-ae76-9dae-86d3-4e913fc54fb1/634904152062.png/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2b/92/73/2b92730a-9c36-d351-dc22-c3b1293794fe/mzaf_10146127334359502177.plus.aac.p.m4a",
+  "streams": 2459510203,
+  "sp": "73CMRj62VK8nUS4ezD2wvi"
+ },
+ {
+  "id": "coldplay-something-just-like-this",
+  "t": "Something Just Like This",
+  "a": "The Chainsmokers & Coldplay",
+  "y": 2017,
+  "al": "Memories...Do Not Open",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9d/56/6f/9d566f55-5253-bed6-5c31-df952dae649d/886446379289.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop",
+   "dans"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cb/75/a1/cb75a1f5-cb2d-b2ba-0f86-14f29ce111c5/mzaf_1015667705080787333.plus.aac.p.m4a",
+  "streams": 3802925194,
+  "sp": "6RUKPb4LETWmmr3iAEQktW"
+ },
+ {
+  "id": "amy-winehouse-rehab",
+  "t": "Rehab",
+  "a": "Amy Winehouse",
+  "y": 2006,
+  "al": "Back to Black",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/cf/3f/09/cf3f0994-980d-d8ed-088d-ae89af256b73/15UMGIM24224.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "rnb",
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/6e/c3/d46ec306-7dae-3f52-02c9-86b7c84a8f33/mzaf_9679547428483928372.plus.aac.p.m4a",
+  "streams": 738076549,
+  "sp": "1L5tZi0izXsi5Kk5OJf4W0"
+ },
+ {
+  "id": "gnarls-barkley-crazy",
+  "t": "Crazy",
+  "a": "Gnarls Barkley",
+  "y": 2006,
+  "al": "Crazy - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a0/93/59/a0935986-ed14-3479-f9d3-cc6919617441/mzi.mpftbhby.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "rnb",
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/be/02/e4/be02e45d-e81a-09e8-4615-9e0f7cfe5ca7/mzaf_12139023665337301104.plus.aac.p.m4a",
+  "streams": 1600597037,
+  "sp": "1vxw6aYJls2oq3gW0DujAo"
+ },
+ {
+  "id": "franz-ferdinand-take-me-out",
+  "t": "Take Me Out",
+  "a": "Franz Ferdinand",
+  "y": 2004,
+  "al": "Franz Ferdinand",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/83/c6/54/83c6541f-3b90-b46a-b46a-17bf8fd9af16/5034202113645.png/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "tags": [
+   "rock"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/be/e8/b9/bee8b9cc-c37f-ea31-1372-5a77d974200c/mzaf_9120925538604726257.plus.aac.p.m4a",
+  "streams": 1448378823,
+  "sp": "20I8RduZC2PWMWTDCZuuAN"
+ },
+ {
+  "id": "the-strokes-last-nite",
+  "t": "Last Nite",
+  "a": "The Strokes",
+  "y": 2001,
+  "al": "Is This It",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cf/18/7b/cf187bcd-029d-5167-bab6-87219f32d95a/078636804521.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "tags": [
+   "rock"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/54/44/71/54447120-b23c-5e9b-197b-9a7fe39441bf/mzaf_7501543230215004927.plus.aac.p.m4a",
+  "streams": 846526652,
+  "sp": "7kzKAuUzOITUauHAhoMoxA"
+ },
+ {
+  "id": "kings-of-leon-sex-on-fire",
+  "t": "Sex On Fire",
+  "a": "Kings of Leon",
+  "y": 2008,
+  "al": "Only By the Night",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/74/25/4c/74254c8b-e03d-44e8-304d-4cde508b8cfb/dj.swemfdrr.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "tags": [
+   "rock"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9f/e7/52/9fe75225-7a58-47d3-d570-22ae95bb160d/mzaf_1409968636503833590.plus.aac.p.m4a",
+  "streams": 2310638430,
+  "sp": "5A1FmxbYVRZKy4nc16MAue"
+ },
+ {
+  "id": "bon-jovi-you-give-love-a-bad-name",
+  "t": "You Give Love a Bad Name",
+  "a": "Bon Jovi",
+  "y": 1986,
+  "al": "Slippery When Wet",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/40/16/3e/40163e24-6985-b785-d4ea-cbae07d74812/06UMGIM05422.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "rock"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/15/3f/80/153f8055-1bc2-d175-a256-0551a72e1300/mzaf_7956543147956949979.plus.aac.p.m4a",
+  "streams": 1669449842,
+  "sp": "3i17RhgJVzIHoXVoqybyYs"
+ },
+ {
+  "id": "def-leppard-pour-some-sugar-on-me",
+  "t": "Pour Some Sugar On Me",
+  "a": "Def Leppard",
+  "y": 1987,
+  "al": "Hysteria (Super Deluxe Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/5d/7d/ce/5d7dce4b-7b13-5f8f-0391-8fcaacef6db9/00602567176176.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "tags": [
+   "rock"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/11/aa/c3/11aac3c2-d61f-d510-5ed6-987733647ec2/mzaf_11584493748796390926.plus.aac.p.m4a",
+  "streams": 680588667,
+  "sp": "0PdM2a6oIjqepoEfcJo0RO"
+ },
+ {
+  "id": "lady-gaga-just-dance",
+  "t": "Just Dance",
+  "a": "Lady Gaga",
+  "y": 2008,
+  "al": "The Fame",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/a6/68/28/a66828c0-3fe3-5419-374d-ad98739f3166/08UMGIM13954.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop",
+   "dans"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7a/f7/45/7af7456b-0444-9dc3-a681-1e9b19c3a12c/mzaf_7188993938116700987.plus.aac.p.m4a",
+  "streams": 1925751181,
+  "sp": "3QuEpyj4kTRWiWuckd1hcK"
+ },
+ {
+  "id": "rihanna-don-t-stop-the-music",
+  "t": "Don't Stop The Music",
+  "a": "Rihanna",
+  "y": 2007,
+  "al": "Good Girl Gone Bad: Reloaded",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2b/c0/81/2bc081c8-25f0-ba43-d451-587a54613778/16UMGIM59202.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop",
+   "dans"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7c/7e/f3/7c7ef3f4-5d22-e656-adab-6837aa4c6f29/mzaf_9728765770156472125.plus.aac.p.m4a",
+  "streams": 1918716737,
+  "sp": "1Jo0Zg7XlrA6z0mFTZVdkn"
+ },
+ {
+  "id": "katy-perry-firework",
+  "t": "Firework",
+  "a": "Katy Perry",
+  "y": 2010,
+  "al": "Teenage Dream: The Complete Confection",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/31/57/b3/3157b3d9-6551-e44e-46c0-488686998a05/13UABIM58339.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/01/1d/81/011d81db-504c-9e37-9cf9-310281b9301a/mzaf_7979324432520378010.plus.aac.p.m4a",
+  "streams": 1642221565,
+  "sp": "4FLRw7sFTaKX66TKAHDstv"
+ },
+ {
+  "id": "taylor-swift-blank-space",
+  "t": "Blank Space",
+  "a": "Taylor Swift",
+  "y": 2014,
+  "al": "1989",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/32/1d/8e/321d8e9e-d806-b545-fd30-5c7aef575abc/14UMGIM34829.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/86/fb/ae/86fbae33-25de-15c0-7c2a-ddff0184015d/mzaf_702089464259026596.plus.aac.p.m4a",
+  "streams": 2630889910,
+  "sp": "1p80LdxRV74UKvL8gnD7ky"
+ },
+ {
+  "id": "ariana-grande-7-rings",
+  "t": "we can't be friends",
+  "a": "Ariana Grande",
+  "y": 2024,
+  "al": "eternal sunshine",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/34/fe/a1/34fea184-6d20-3f50-b4ce-5e1501c1c5ab/24UMGIM00198.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ca/c3/94/cac39418-a873-d7d2-fb21-8820e9862594/mzaf_16443570300164696374.plus.aac.p.m4a",
+  "streams": 2158538456,
+  "sp": "0eJby3xIvMhXJaAfZKhffc"
+ },
+ {
+  "id": "bruno-mars-treasure",
+  "t": "Marry You",
+  "a": "Bruno Mars",
+  "y": 2010,
+  "al": "Doo-Wops & Hooligans",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/25/6d/95/256d95ea-c58c-074d-b6f1-18f5cb4e6b96/075679956293.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/08/11/d5/0811d557-d4aa-72b4-519c-9fc773112989/mzaf_15450672905007852111.plus.aac.p.m4a",
+  "streams": 1722995611,
+  "sp": "6SKwQghsR8AISlxhcwyA9R"
+ },
+ {
+  "id": "justin-timberlake-sexyback",
+  "t": "SexyBack",
+  "a": "Justin Timberlake",
+  "y": 2006,
+  "al": "FutureSex/LoveSounds (Deluxe Edition)",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4c/44/30/4c4430dd-150b-d393-ec70-4894975f4b16/888880422095.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop",
+   "rnb"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1a/f4/7b/1af47ba3-a363-5716-4dd9-6aea4fe35e3f/mzaf_13609262275263691829.plus.aac.p.m4a",
+  "streams": 1552019819,
+  "sp": "4Lvc9SbPc0svm9TEoMgFzB"
+ },
+ {
+  "id": "tones-and-i-dance-monkey",
+  "t": "Dance Monkey",
+  "a": "Tones And I",
+  "y": 2019,
+  "al": "Dance Monkey - Single",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d2/3a/b8/d23ab839-660d-ef93-2ccb-d0825fc3e8f5/075679838872.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "tags": [
+   "pop"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "other",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/45/72/4f/45724fc8-2e85-d5b1-dda0-775958e9b692/mzaf_1626542530959622659.plus.aac.p.m4a",
+  "streams": 3527584697,
+  "sp": "2N8m6CYs74qQO4mjVcXO30"
+ },
+ {
+  "id": "the-cranberries-zombie",
+  "t": "Zombie",
+  "a": "The Cranberries",
+  "y": 1994,
+  "al": "Stars: The Best of the Cranberries 1992-2002",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b6/c8/85/b6c885de-fde6-d40d-c95a-d89ede4270ae/06UMGIM09433.rgb.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "tags": [
+   "rock"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/17/06/d1/1706d1c3-4c96-68bd-6a8b-ddec684fd9cb/mzaf_7183844787347303528.plus.aac.p.m4a",
+  "streams": 1930038380,
+  "sp": "3gjHnylel3PTRpjS44ocqr"
+ },
+ {
+  "id": "queen-somebody-to-love",
+  "t": "Somebody To Love",
+  "a": "Queen",
+  "y": 1976,
+  "al": "Greatest Hits",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b0/ca/05/b0ca05aa-29c9-4e01-5a16-f6fa06bce05c/602527594347.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "tags": [
+   "rock"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "piano",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cf/f4/e1/cff4e142-6852-e2fe-2027-8ee010757a96/mzaf_13501912138800327047.plus.aac.p.m4a",
+  "streams": 1182242820,
+  "sp": "4rDbp1vnvEhieiccprPMdI"
+ },
+ {
+  "id": "fleetwood-mac-everywhere",
+  "t": "Everywhere",
+  "a": "Fleetwood Mac",
+  "y": 1987,
+  "al": "Greatest Hits",
+  "c": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d2/48/f4/d248f4ae-a7e4-a48e-1588-6617de3e8d76/mzi.izeorbmm.jpg/600x600bb.jpg",
+  "stems": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "tags": [
+   "pop",
+   "rock"
+  ],
+  "tracks": [
+   "drums",
+   "bass",
+   "guitar",
+   "vocals"
+  ],
+  "p": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b4/88/89/b48889cc-2325-4969-bd6b-92bb999b96b1/mzaf_1300241890398530136.plus.aac.p.m4a",
+  "streams": 1575832201,
+  "sp": "1prZ0pr6XoRCxcrC3MCL0M"
  }
 ]

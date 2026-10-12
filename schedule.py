@@ -37,13 +37,9 @@ def main():
         sched = json.loads(path.read_text())["ids"]
     else:
         sched = legacy_ids(ids, today)
-    # Låtar som tagits bort ersätts bara framåt i tiden
-    sched = [x if (i < today or x in ids) else None for i, x in enumerate(sched)]
-    rnd = random.Random(len(sched))
-    for i in range(len(sched)):
-        if sched[i] is None:
-            recent = set(sched[max(0, i - REPEAT_GAP):i])
-            sched[i] = rnd.choice([x for x in ids if x not in recent] or ids)
+    # Dagar till och med i dag ändras aldrig; framtiden slumpas om så att nya låtar kommer med
+    sched = sched[:today]
+    rnd = random.Random(f"{today}-{len(ids)}")
     while len(sched) < today + AHEAD:
         recent = set(sched[-REPEAT_GAP:])
         sched.append(rnd.choice([x for x in ids if x not in recent] or ids))
