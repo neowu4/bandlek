@@ -236,7 +236,7 @@ const has = t => s => (s.tags||[]).includes(t);
 const decade = d => s => Math.floor(s.y/10)*10===d;
 const CATS = [
   {id:'all', name:'Alla', f:()=>true},
-  {id:'sv', name:'Svenskt', f:isSv}, {id:'intl', name:'Internationellt', f:s=>!isSv(s)}, null,
+  {id:'sv', name:'På svenska', f:isSv}, {id:'intl', name:'På engelska', f:s=>!isSv(s)}, null,
   {id:'pop', name:'Pop', f:has('pop')}, {id:'rock', name:'Rock', f:has('rock')}, {id:'dans', name:'Dans & elektroniskt', f:has('dans')},
   {id:'disco', name:'Disco & funk', f:has('disco')}, {id:'rnb', name:'R&B & hiphop', f:has('rnb')}, {id:'mello', name:'Mello & Eurovision', f:has('mello')}, null,
   ...[1970,1980,1990,2000,2010,2020].map(d=>({id:'d'+d, name:String(d).slice(2)+'-tal', f:decade(d)})),

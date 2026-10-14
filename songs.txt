@@ -1,22 +1,22 @@
 # En låt per rad: Artist - Titel | kategorier
-# Kategorier: sv (svensk), pop, rock, dans, disco, rnb, mello (Melodifestivalen/Eurovision). Årtiondet räknas ut automatiskt.
+# Kategorier: sv (sjungs på svenska), pop, rock, dans, disco, rnb, mello (Melodifestivalen/Eurovision). Årtiondet räknas ut automatiskt.
 # Kör sedan: .venv/bin/python build.py && .venv-bp/bin/python transcribe.py && python3 stats.py
-ABBA - Dancing Queen | sv, pop, disco
-ABBA - Mamma Mia | sv, pop
-Avicii - Wake Me Up | sv, dans
-Avicii - Levels | sv, dans
-Roxette - It Must Have Been Love | sv, pop
-Europe - The Final Countdown | sv, rock
-Swedish House Mafia - Don't You Worry Child | sv, dans
-Zara Larsson - Lush Life | sv, pop
-Robyn - Dancing On My Own | sv, pop, dans
+ABBA - Dancing Queen | pop, disco
+ABBA - Mamma Mia | pop
+Avicii - Wake Me Up | dans
+Avicii - Levels | dans
+Roxette - It Must Have Been Love | pop
+Europe - The Final Countdown | rock
+Swedish House Mafia - Don't You Worry Child | dans
+Zara Larsson - Lush Life | pop
+Robyn - Dancing On My Own | pop, dans
 Veronica Maggio - Jag kommer | sv, pop
 Håkan Hellström - Känn ingen sorg för mig Göteborg | sv, rock
-Loreen - Euphoria | sv, dans, mello
-Måns Zelmerlöw - Heroes | sv, pop, mello
-The Cardigans - Lovefool | sv, pop
-Tove Lo - Habits (Stay High) | sv, pop
-Miss Li - Dancing the Whole Way Home | sv, pop
+Loreen - Euphoria | dans, mello
+Måns Zelmerlöw - Heroes | pop, mello
+The Cardigans - Lovefool | pop
+Tove Lo - Habits (Stay High) | pop
+Miss Li - Dancing the Whole Way Home | pop
 Kent - Musik non stop | sv, rock
 Queen - Don't Stop Me Now | rock
 Michael Jackson - Billie Jean | pop, disco
@@ -32,54 +32,54 @@ Fleetwood Mac - Dreams | rock
 Nirvana - Smells Like Teen Spirit | rock
 Eagles - Hotel California | rock
 Adele - Rolling in the Deep | pop
-ABBA - Waterloo | sv, pop, mello
-ABBA - Gimme! Gimme! Gimme! | sv, pop, disco
-Roxette - The Look | sv, pop, rock
-Roxette - Listen to Your Heart | sv, pop, rock
-Ace of Base - All That She Wants | sv, pop, dans
-Ace of Base - The Sign | sv, pop, dans
-Dr. Alban - It's My Life | sv, dans
+ABBA - Waterloo | pop, mello
+ABBA - Gimme! Gimme! Gimme! | pop, disco
+Roxette - The Look | pop, rock
+Roxette - Listen to Your Heart | pop, rock
+Ace of Base - All That She Wants | pop, dans
+Ace of Base - The Sign | pop, dans
+Dr. Alban - It's My Life | dans
 Gyllene Tider - Sommartider | sv, pop, rock
 Carola - Fångad av en stormvind | sv, pop, mello
-Mando Diao - Dance With Somebody | sv, rock
-The Ark - It Takes a Fool to Remain Sane | sv, rock
-Icona Pop - I Love It | sv, pop, dans
-Lykke Li - I Follow Rivers | sv, pop
-Robyn - Call Your Girlfriend | sv, pop, dans
-Avicii - The Nights | sv, dans
-Swedish House Mafia - Save the World | sv, dans
-Galantis - Runaway (U & I) | sv, dans
-Loreen - Tattoo | sv, pop, mello
-Eric Saade - Popular | sv, pop, mello
-Zara Larsson - Never Forget You | sv, pop
-Molly Sandén - Freak | sv, pop, mello
-Laleh - Some Die Young | sv, pop
+Mando Diao - Dance With Somebody | rock
+The Ark - It Takes a Fool to Remain Sane | rock
+Icona Pop - I Love It | pop, dans
+Lykke Li - I Follow Rivers | pop
+Robyn - Call Your Girlfriend | pop, dans
+Avicii - The Nights | dans
+Swedish House Mafia - Save the World | dans
+Galantis - Runaway (U & I) | dans
+Loreen - Tattoo | pop, mello
+Eric Saade - Popular | pop, mello
+Zara Larsson - Never Forget You | pop
+Molly Sandén - Freak | pop, mello
+Laleh - Some Die Young | pop
 Veronica Maggio - Satan i gatan | sv, pop
 Oskar Linnros - Från och med du | sv, pop
 Petra Marklund - Händerna mot himlen | sv, pop
 Håkan Hellström - Det kommer aldrig va över för mig | sv, rock
-Smith & Thell - Forgive Me Friend | sv, pop
+Smith & Thell - Forgive Me Friend | pop
 Tomas Ledin - Sommaren är kort | sv, pop
 Lisa Nilsson - Himlen runt hörnet | sv, pop
-Miss Li - Bourgeois Shangri-La | sv, pop
-ABBA - Take a Chance on Me | sv, pop
-Roxette - Joyride | sv, pop, rock
-Ace of Base - Beautiful Life | sv, pop, dans
-Robyn - Show Me Love | sv, pop, rnb
-The Cardigans - My Favourite Game | sv, rock
+Miss Li - Bourgeois Shangri-La | pop
+ABBA - Take a Chance on Me | pop
+Roxette - Joyride | pop, rock
+Ace of Base - Beautiful Life | pop, dans
+Robyn - Show Me Love | pop, rnb
+The Cardigans - My Favourite Game | rock
 Kent - Dom andra | sv, rock
-Avicii - Waiting For Love | sv, dans
-Alesso - Heroes (we could be) | sv, dans
-Zara Larsson - Ain't My Fault | sv, pop
-Zara Larsson - I Would Like | sv, pop
-Tove Lo - How Long | sv, pop
-Måns Zelmerlöw - Cara Mia | sv, pop, mello
-Danny Saucedo - Amazing | sv, pop, mello
-Benjamin Ingrosso - Dance You Off | sv, pop, mello
+Avicii - Waiting For Love | dans
+Alesso - Heroes (we could be) | dans
+Zara Larsson - Ain't My Fault | pop
+Zara Larsson - I Would Like | pop
+Tove Lo - How Long | pop
+Måns Zelmerlöw - Cara Mia | pop, mello
+Danny Saucedo - Amazing | pop, mello
+Benjamin Ingrosso - Dance You Off | pop, mello
 Victor Leksell - Svag | sv, pop
 Molly Sandén - Det bästa kanske inte hänt än | sv, pop
-Tusse - Voices | sv, pop, mello
-Cornelia Jakobs - Hold Me Closer | sv, pop, mello
+Tusse - Voices | pop, mello
+Cornelia Jakobs - Hold Me Closer | pop, mello
 Veronica Maggio - Välkommen in | sv, pop
 Håkan Hellström - Kom igen Lena! | sv, rock
 Michael Jackson - Beat It | pop, rock
@@ -102,16 +102,16 @@ Rihanna - Umbrella | pop, rnb
 Bruno Mars - 24K Magic | rnb, disco
 Calvin Harris - Summer | dans
 The Killers - Mr. Brightside | rock
-Charlotte Perrelli - Hero | sv, pop, mello
+Charlotte Perrelli - Hero | pop, mello
 Lena Philipsson - Det gör ont | sv, pop, mello
 Herreys - Diggi-Loo Diggi-Ley | sv, pop, mello
-John Lundvik - Too Late for Love | sv, pop, mello
-Alcazar - Crying at the Discoteque | sv, dans, disco
+John Lundvik - Too Late for Love | pop, mello
+Alcazar - Crying at the Discoteque | dans, disco
 Basshunter - Boten Anna | sv, dans
-September - Cry for You | sv, dans
-E-Type - This Is the Way | sv, dans
-Rednex - Cotton Eye Joe | sv, dans
-Agnes - Release Me | sv, pop, dans
+September - Cry for You | dans
+E-Type - This Is the Way | dans
+Rednex - Cotton Eye Joe | dans
+Agnes - Release Me | pop, dans
 Per Gessle - Här kommer alla känslorna | sv, pop
 Laleh - Goliat | sv, pop
 Hov1 - Hon vet | sv, pop, rnb
@@ -120,7 +120,7 @@ Chic - Le Freak | disco
 Gloria Gaynor - I Will Survive | disco
 Donna Summer - Hot Stuff | disco
 Kool & The Gang - Celebration | disco
-ABBA - Voulez-Vous | sv, disco
+ABBA - Voulez-Vous | disco
 Beyoncé - Crazy in Love | rnb
 Usher - Yeah! | rnb
 OutKast - Hey Ya! | rnb, pop
@@ -146,7 +146,7 @@ Kent - 747 | sv, rock
 Bo Kaspers Orkester - Undantag | sv, pop
 Timbuktu - Resten av ditt liv | sv, rnb
 Erik Lundin - Suedi | sv, rnb
-Miriam Bryant - Push Play | sv, pop
+Miriam Bryant - Push Play | pop
 Veronica Maggio - Hela huset | sv, pop
 Håkan Hellström - Ramlar | sv, rock
 Mauro Scocco - Sarah | sv, pop
@@ -155,14 +155,14 @@ Gyllene Tider - Flickorna på TV2 | sv, pop, rock
 Imperiet - Du ska va president | sv, rock
 Ebba Grön - Staten och kapitalet | sv, rock
 Kikki Danielsson - Dag efter dag | sv, pop, mello
-Frans - If I Were Sorry | sv, pop, mello
-Swedish House Mafia - Miami 2 Ibiza | sv, dans
-Axwell Λ Ingrosso - More Than You Know | sv, dans
-Avicii - Addicted To You | sv, dans
-Peter Bjorn and John - Young Folks | sv, pop, rock
-Europe - Rock the Night | sv, rock
-The Hives - Tick Tick Boom | sv, rock
-Mando Diao - Gloria | sv, rock
+Frans - If I Were Sorry | pop, mello
+Swedish House Mafia - Miami 2 Ibiza | dans
+Axwell Λ Ingrosso - More Than You Know | dans
+Avicii - Addicted To You | dans
+Peter Bjorn and John - Young Folks | pop, rock
+Europe - Rock the Night | rock
+The Hives - Tick Tick Boom | rock
+Mando Diao - Gloria | rock
 Queen - Under Pressure | rock
 David Bowie - Let's Dance | pop, rock
 Stevie Wonder - Superstition | rnb, disco
@@ -181,25 +181,25 @@ Blur - Song 2 | rock
 Green Day - Basket Case | rock
 Elton John - I'm Still Standing | pop, rock
 Kylie Minogue - Can't Get You Out of My Head | pop, dans
-Avicii - SOS | sv, dans
-Robyn - With Every Heartbeat | sv, pop, dans
-The Cardigans - Erase/Rewind | sv, pop
-Roxette - Dangerous | sv, pop, rock
-Roxette - Fading Like a Flower | sv, pop
-ABBA - SOS | sv, pop
-ABBA - Lay All Your Love on Me | sv, pop, disco
-ABBA - Super Trouper | sv, pop
-Ace of Base - Don't Turn Around | sv, pop, dans
-Dr. Alban - Sing Hallelujah! | sv, dans
-Basshunter - Now You're Gone | sv, dans
+Avicii - SOS | dans
+Robyn - With Every Heartbeat | pop, dans
+The Cardigans - Erase/Rewind | pop
+Roxette - Dangerous | pop, rock
+Roxette - Fading Like a Flower | pop
+ABBA - SOS | pop
+ABBA - Lay All Your Love on Me | pop, disco
+ABBA - Super Trouper | pop
+Ace of Base - Don't Turn Around | pop, dans
+Dr. Alban - Sing Hallelujah! | dans
+Basshunter - Now You're Gone | dans
 Linda Bengtzing - Jag ljuger så bra | sv, pop, mello
-Darin - Step Up | sv, pop
+Darin - Step Up | pop
 Eric Amarillo - Om sanningen ska fram | sv, dans
 Sabaton - Carolus Rex | sv, rock
-Lykke Li - Little Bit | sv, pop
-Benjamin Ingrosso - Look Who's Laughing Now | sv, pop
+Lykke Li - Little Bit | pop
+Benjamin Ingrosso - Look Who's Laughing Now | pop
 Veronica Maggio - Sergels torg | sv, pop
-Tove Styrke - Say My Name | sv, pop
+Tove Styrke - Say My Name | pop
 Michael Jackson - Thriller | pop, disco
 Madonna - Hung Up | pop, dans, disco
 Kate Bush - Running Up That Hill | pop
@@ -222,17 +222,17 @@ Post Malone - Circles | pop
 The Police - Every Breath You Take | rock, pop
 Toto - Rosanna | rock
 Bon Jovi - It's My Life | rock
-Robyn - Be Mine! | sv, pop
-Avicii - Lonely Together | sv, dans
-Icona Pop - All Night | sv, pop, dans
-Agnes - On and On | sv, pop, dans
-Eric Saade - Manboy | sv, pop, mello
-The Cardigans - Carnival | sv, pop
-Roxette - Spending My Time | sv, pop
-ABBA - Money, Money, Money | sv, pop
-ABBA - Knowing Me, Knowing You | sv, pop
+Robyn - Be Mine! | pop
+Avicii - Lonely Together | dans
+Icona Pop - All Night | pop, dans
+Agnes - On and On | pop, dans
+Eric Saade - Manboy | pop, mello
+The Cardigans - Carnival | pop
+Roxette - Spending My Time | pop
+ABBA - Money, Money, Money | pop
+ABBA - Knowing Me, Knowing You | pop
 Kent - Ingenting | sv, rock
-Laleh - Colors | sv, pop
+Laleh - Colors | pop
 Panetoz - Dansa pausa | sv, pop, dans
 Michael Jackson - Don't Stop 'Til You Get Enough | pop, disco
 Madonna - Vogue | pop, dans
@@ -265,18 +265,18 @@ Carola - Främling | sv, pop, mello
 Shirley Clamp - Min kärlek | sv, pop, mello
 Arvingarna - Eloise | sv, pop, mello
 Martin Stenmarck - Las Vegas | sv, pop, mello
-Måns Zelmerlöw - Hope & Glory | sv, pop, mello
-Hanna Ferm - Hold You | sv, pop, mello
+Måns Zelmerlöw - Hope & Glory | pop, mello
+Hanna Ferm - Hold You | pop, mello
 Kent - Om du var här | sv, rock
 Bo Kaspers Orkester - Ett & noll | sv, pop
-Tove Styrke - Borderline | sv, pop
-Avicii - Broken Arrows | sv, dans
-Basshunter - All I Ever Wanted | sv, dans
-Ace of Base - Happy Nation | sv, pop, dans
-Roxette - Sleeping in My Car | sv, pop, rock
-Europe - Cherokee | sv, rock
-ABBA - Does Your Mother Know | sv, pop, rock
-ABBA - Summer Night City | sv, disco
+Tove Styrke - Borderline | pop
+Avicii - Broken Arrows | dans
+Basshunter - All I Ever Wanted | dans
+Ace of Base - Happy Nation | pop, dans
+Roxette - Sleeping in My Car | pop, rock
+Europe - Cherokee | rock
+ABBA - Does Your Mother Know | pop, rock
+ABBA - Summer Night City | disco
 Queen - Radio Ga Ga | rock, pop
 Michael Jackson - Smooth Criminal | pop, disco
 Michael Jackson - Black or White | pop, rock
@@ -308,23 +308,23 @@ Sabrina Carpenter - Please Please Please | pop
 Kent - Kräm (så nära får ingen gå) | sv, rock
 Håkan Hellström - Det är så jag säger det | sv, rock
 Laleh - Bara få va mig själv | sv, pop
-Zara Larsson - Can't Tame Her | sv, pop
-Avicii - You Make Me | sv, dans
-Avicii - Heaven | sv, dans
-Ace of Base - Wheel of Fortune | sv, pop, dans
-Dr. Alban - Look Who's Talking | sv, dans
-E-Type - Set the World on Fire | sv, dans
-Alcazar - This Is the World We Live In | sv, dans, disco
-Army of Lovers - Crucified | sv, dans, disco
-Roxette - Almost Unreal | sv, pop, rock
-Europe - Superstitious | sv, rock
-ABBA - Ring Ring | sv, pop
-ABBA - Head over Heels | sv, pop
-Nanne Grönvall - Avundsjuk | sv, pop, mello
+Zara Larsson - Can't Tame Her | pop
+Avicii - You Make Me | dans
+Avicii - Heaven | dans
+Ace of Base - Wheel of Fortune | pop, dans
+Dr. Alban - Look Who's Talking | dans
+E-Type - Set the World on Fire | dans
+Alcazar - This Is the World We Live In | dans, disco
+Army of Lovers - Crucified | dans, disco
+Roxette - Almost Unreal | pop, rock
+Europe - Superstitious | rock
+ABBA - Ring Ring | pop
+ABBA - Head over Heels | pop
+Nanne Grönvall - Avundsjuk | pop, mello
 Anna Book - Samba Sambero | sv, pop, mello
-Wiktoria - Save Me | sv, pop, mello
-The Ark - The Worrying Kind | sv, rock, mello
-Danny Saucedo - In the Club | sv, pop, mello
+Wiktoria - Save Me | pop, mello
+The Ark - The Worrying Kind | rock, mello
+Danny Saucedo - In the Club | pop, mello
 Queen - Crazy Little Thing Called Love | rock
 The Rolling Stones - (I Can't Get No) Satisfaction | rock
 Bruce Springsteen - Dancing in the Dark | rock, pop
@@ -351,15 +351,15 @@ Veronica Maggio - Dumpa mig | sv, pop
 Veronica Maggio - 17 år | sv, pop
 Håkan Hellström - Kärlek är ett brev skickat tusen gånger | sv, rock
 Kent - Max 500 | sv, rock
-Zara Larsson - So Good | sv, pop
-Clean Bandit - Symphony | sv, pop, dans
-Galantis - No Money | sv, dans
-Alesso - Cool | sv, dans
-Agnes - I Need You Now | sv, pop, dans
-Sarah Dawn Finer - Moving On | sv, pop, mello
-Andreas Johnson - Sing for Me | sv, pop, mello
-After Dark - La dolce vita | sv, pop, mello
-BWO - Sunshine in the Rain | sv, pop, dans, mello
+Zara Larsson - So Good | pop
+Clean Bandit - Symphony | pop, dans
+Galantis - No Money | dans
+Alesso - Cool | dans
+Agnes - I Need You Now | pop, dans
+Sarah Dawn Finer - Moving On | pop, mello
+Andreas Johnson - Sing for Me | pop, mello
+After Dark - La dolce vita | pop, mello
+BWO - Sunshine in the Rain | pop, dans, mello
 Magnus Uggla - Kung för en dag | sv, pop
 Gyllene Tider - När vi två blir en | sv, pop, rock
 Lustans Lakejer - Diamanter | sv, pop
@@ -387,23 +387,23 @@ Guns N' Roses - Welcome to the Jungle | rock
 Dua Lipa - Dance the Night | pop, disco
 Harry Styles - Late Night Talking | pop
 Taylor Swift - Cruel Summer | pop
-Avicii - The Days | sv, dans
-Swedish House Mafia - Moth to a Flame | sv, dans
-Robyn - Indestructible | sv, pop, dans
-First Aid Kit - My Silver Lining | sv, pop, rock
-The Knife - Heartbeats | sv, pop, dans
+Avicii - The Days | dans
+Swedish House Mafia - Moth to a Flame | dans
+Robyn - Indestructible | pop, dans
+First Aid Kit - My Silver Lining | pop, rock
+The Knife - Heartbeats | pop, dans
 Kent - Kärleken väntar | sv, rock
 Håkan Hellström - Tro och tvivel | sv, rock
-Måns Zelmerlöw - Should've Gone Home | sv, pop
-Charlotte Perrelli - Take Me to Your Heaven | sv, pop, mello
+Måns Zelmerlöw - Should've Gone Home | pop
+Charlotte Perrelli - Take Me to Your Heaven | pop, mello
 Carola - Evighet | sv, pop, mello
 Pernilla Wahlgren - Piccadilly Circus | sv, pop, mello
 Lotta Engberg - Fyra Bugg & en Coca Cola | sv, pop, mello
 Samir & Viktor - Shuffla | sv, pop, dans, mello
-Dotter - Bulletproof | sv, pop, mello
-Anna Bergendahl - Ashes to Ashes | sv, pop, rock, mello
-Roxette - Dressed for Success | sv, pop
-Eagle-Eye Cherry - Save Tonight | sv, rock, pop
+Dotter - Bulletproof | pop, mello
+Anna Bergendahl - Ashes to Ashes | pop, rock, mello
+Roxette - Dressed for Success | pop
+Eagle-Eye Cherry - Save Tonight | rock, pop
 Bee Gees - Night Fever | disco
 Village People - Y.M.C.A. | disco
 Boney M. - Rasputin | disco
@@ -424,3 +424,44 @@ Rihanna - Diamonds | pop
 Beyoncé - Love On Top | rnb, pop
 Sabrina Carpenter - Taste | pop
 Lady Gaga - Abracadabra | pop, dans
+Håkan Hellström - Brännö serenad | sv, rock
+Kent - Socker | sv, rock
+Kent - Utan dina andetag | sv, rock
+Lars Winnerbäck - Om du lämnade mig nu | sv, pop
+Ulf Lundell - Snart kommer det en vind | sv, rock
+Thåström - Fanfanfan | sv, rock
+Ebba Grön - Die Mauer | sv, rock
+Eldkvarn - Kungarna från Broadway | sv, rock
+Magnus Uggla - Joey Killer | sv, pop
+Magnus Uggla - Pappas pojk | sv, pop
+Gyllene Tider - (Kom så ska vi) Leva livet | sv, pop, rock
+Ted Gärdestad - Jag vill ha en egen måne | sv, pop
+Tomas Ledin - En del av mitt hjärta | sv, pop
+Björn Skifs - Det blir alltid värre framåt natten | sv, pop
+Orup - Stockholm | sv, pop
+Eva Dahlgren - Vem tänder stjärnorna | sv, pop
+Freestyle - Fantasi | sv, pop
+Lisa Nilsson - Varje gång jag ser dig | sv, pop
+Petter - Logiskt | sv, rnb
+Timbuktu - Det löser sig | sv, rnb
+Movits! - Fel del av gården | sv, rnb
+Einár - Katten i trappuppgången | sv, rnb
+Hov1 - Pari | sv, pop
+Veronica Maggio - Stopp | sv, pop
+Laleh - Vårens första dag | sv, pop
+Miss Li - Komplicerad | sv, pop
+Darin - Tvillingen | sv, pop
+Familjen - Det snurrar i min skalle | sv, dans
+Billy Joel - Uptown Girl | pop, rock
+Hall & Oates - You Make My Dreams | pop, rock
+Simple Minds - Don't You (Forget About Me) | pop, rock
+Alanis Morissette - Ironic | rock, pop
+No Doubt - Don't Speak | rock, pop
+Aqua - Barbie Girl | pop, dans
+Vengaboys - We Like to Party! | dans
+Snap! - Rhythm Is a Dancer | dans
+Robbie Williams - Rock DJ | pop
+Lorde - Royals | pop
+Arctic Monkeys - 505 | rock
+Måneskin - Beggin' | rock
+SZA - Kill Bill | rnb
